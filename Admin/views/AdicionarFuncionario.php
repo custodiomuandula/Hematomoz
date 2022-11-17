@@ -68,9 +68,9 @@ include 'head.php';
                     </select>
                 </div>
 
-                    <div class="container my-3">
+                    <div class="container my-3 ms-5">
                         <button class="btn btn-success" type="submit">Registrar</button>
-                        <button class="btn btn-danger">Cancelar</button>
+                        <button class="btn btn-danger ms-5">Cancelar</button>
                     </div>
                 </div>
         </form>

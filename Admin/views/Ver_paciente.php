@@ -1,12 +1,10 @@
 <?php
-include './head.php';
+include '../../Admin/views/head.php';
 ?>
-
-
 <div class="dashboard-content">
-   <div class="container mt-2">
-        <h3 class="text-center">Lista de Doadores<i class="fa-sharp fa-solid fa-hand-holding-heart"></i></h3>
-        <table class="table table-striped">
+    <div class="container mt-3">
+    <h3 class="text-center">Dados dos Pacientes</h3>
+        <table class="table table-striped mt-3">
             <thead>
                 <th>Nr</th>
                 <th>Numero de BI</th>
@@ -20,10 +18,12 @@ include './head.php';
                 <th>Contactos</th>
                 <th></th>
             </thead>
-
             <tbody>
+
             </tbody>
+        </table>
+
     </div>
-</div>
-</div>  
-</body>
+    <div>
+
+    </div>

@@ -6,7 +6,6 @@ body{
   
     overflow-x: hidden;
     overflow-y: hidden;
-   
 }
 .dashboard-content{
     width: 100vw;
@@ -24,8 +23,9 @@ body{
 
 #side_nav{
     background-color:#D26464 ;
-    min-width: 252px;
-    max-width: 252px;
+    min-width: 240px;
+    max-width: 240px;
+   
    
   
 }
@@ -45,7 +45,7 @@ hr.h-color{
  }
  .sidebar li a{
     color: #fff;
-    font-size: 17px;
+    font-size: 19px;
  }
  .content .navbar{
  background-color: #DA4A4A !important;

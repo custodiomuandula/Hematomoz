@@ -1,8 +1,6 @@
 <?php
 include  '../../Admin/views/head.php'
-
 ?>
-
 <div class="dashboard-content">
     <div class="container mt-3 ">
 
@@ -14,7 +12,7 @@ include  '../../Admin/views/head.php'
     </div>
 
     <div class="container mt-2">
-        <h3 class="text-center">Requisições Pendentes <i class="fa-sharp fa-solid fa-hand-holding-heart"></i></h3>
+        <h3 class="text-center">Requisições Pendentes <i class="fa-light fa-clipboard-medical"></i></h3>
         <table class="table table-striped">
             <thead>
                 <th>Nome da Intituição</th>
@@ -31,3 +29,4 @@ include  '../../Admin/views/head.php'
 
 
     </div>
+ </div>   
