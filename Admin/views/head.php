@@ -22,7 +22,7 @@
       <div class="container-fluid">
 
         <div class="header-box">
-          <h1 class="fs-4 "><span class="bg-white text-dark rounded shadow px-2 me-2  ">HTZ</span>HemaTomoz</h1>
+          <h1 class="fs-4 fw-bold text-white">HemaTomoz</h1>
           <button class="btn close-btn d-md-none d-block px-1 py-o text-white"></button>
         </div>
         <a class="navbar-brand fw-bold" href="#"></a>
@@ -53,7 +53,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Doações
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
+            <ul class="dropdown-menu dropdown-menu-white">
               <li><a class="dropdown-item" href="./Requisicao_sangue.php">Pedidos Requisição</a></li>
               <li><a class="dropdown-item" href="./Doadores.php">Ver Doadores</a></li>
               <li><a class="dropdown-item" href="./Doacoes.php">Ver Doações</a></li>
@@ -71,20 +71,21 @@
         <ul class="list-unstyled px-2">
           <li><a href="./AdicionarFuncionario.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-plus"></i> Novo Funcionario</a></li>
           <li><a href="./Ver_funcionarios.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Funcionario</a></li>
-
+          <hr class="h-color mx-2">
+          <li><a href="./Ver_funcionarios.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Definições</a></li>
         </ul>
 
 
-
-      </div>
-
-
-
-
-      <script>
+        <script>
+          
         $(".sidebar ul li").on('click', function() {
           $(".sidebar ul li.active").removeClass('active');
           $(this).addClass('active');
 
         })
       </script>
+
+      </div>
+
+
+

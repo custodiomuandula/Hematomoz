@@ -1,6 +1,7 @@
 <?php
 include '../../Doador_requisitante/views/head.php'
 ?>
+
 <div class="container col-sm-10 p-3">
 
 <h3 class="text-center  m-4 "><i class="fa-solid fa-user-plus"></i>Requisições de Bolsas de Sangue</h3>

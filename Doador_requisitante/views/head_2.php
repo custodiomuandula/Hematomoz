@@ -36,19 +36,20 @@
               Doador
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="./Agendar_doacao.php">Agendar Doação</a></li>
+              <li><a class="dropdown-item" href="./doador.php">Agendar Doação</a></li>
+              <li><a class="dropdown-item" href="#">Meus Dados</a></li>
               <li><a class="dropdown-item" href="#"></a></li>
             </ul>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="../../Doador_requisitante/views/requisitante.php">Requisitante</a>
+            <a class="nav-link" href="./requisitante.php">Requisiçóes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">Suporte</a>
+            <a class="nav-link disabled" href="#">Suporte</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./doador.php">Sobre</a>
+            <a class="nav-link disabled" href="#">Sobre</a>
           </li>
           
         </ul>
@@ -58,7 +59,7 @@
       <div class=" d-flex justify-content-end">
         <ul class="navbar-nav">
           <li class="nav-item "> 
-            <a href="../../Doador_requisitante/login.php" class="nav-link"> Fazer Login </a>
+            <a href="" class="nav-link disabled">Logout(Custodio)</a>
           </li> 
         </ul>
         </div>
