@@ -31,7 +31,7 @@ include '../../Admin/views/head.php';
 
                 <tbody style="color:#DA4A4A ; border:1px solid #DA4A4A; ">
 
-                    <tr style="color:#DA4A4A" ;>
+                    <tr style="color:#DA4A4A">
                         <td>Custodio</td>
                         <td>B-</td>
                         <td>0307</td>

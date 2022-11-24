@@ -2,31 +2,35 @@
 include  '../../Admin/views/head.php'
 ?>
 <div class="dashboard-content">
-    <div class="container mt-3 ">
 
-        <div class="btn-group fload-start">
-            <a href="#" class="btn ">Requisições Aceite</a>
-            <a href="#" class="btn disabled">Requisições Rejeitadas </a>
-            
+    <div class="container mt-4">
+        <div class="" style="color:#DA4A4A">
+        <h3 class="text-center">Requisições Doações <i class="fa-light fa-clipboard-medical"></i></h3>
         </div>
-    </div>
+        <div class="container d-flex mt-3 w-75">
 
-    <div class="container mt-2">
-        <h3 class="text-center">Requisições Pendentes <i class="fa-light fa-clipboard-medical"></i></h3>
-        <table class="table table-striped">
-            <thead>
-                <th>Nome da Intituição</th>
-                <th>Data da Requisição</th>
-                <th>Asunto</th>
-                <th>Nr Ducumento</th>
-                <th>email</th>
-                <th>Contactos</th>
+<table class="table table-striped mt-4" style="color:#DA4A4A ; ">
+              <thead>
+                  <th>Nome da Intituição</th>
+                  <th>Data da Requisição</th>  
+                  <th>Data da Entrega</th> 
+              </thead>
+              <tbody>
 
-            </thead>
+                  <tr style="color:#DA4A4A";>
+                      <td>Hospital Cental de Maputo</td>
+                      <td>04/06/2021</td>
+                      <td>04/06/2021</td>
+                      <td><a href="./Requisicoes_info.php" style="color: #DA4A4A;"><i class="fa-solid fa-circle-info"></i></a></td>
+                  </tr>
+              </tbody>
+              
 
-            <tbody>
-            </tbody>
+          </table>
 
 
+
+
+</div>
     </div>
  </div>   
