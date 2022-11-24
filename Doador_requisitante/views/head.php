@@ -21,36 +21,22 @@
       <a href="#" class="navbar-brand">
         <img src="../../assets/fotos/Imagem.jpg" alt="" class="logo">
       </a>
-      <a class="navbar-brand fw-bold" href="#" style="color:#D9F3F5 ;">Hematomoz</a>
+      <a class="navbar-brand fw-bold" href="./menu.php" style="color:#D9F3F5 ;">Hematomoz</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+      
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Doador
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="./Agendar_doacao.php">Agendar Doação</a></li>
-              <li><a class="dropdown-item" href="#"></a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="../../Doador_requisitante/views/requisitante.php">Requisitante</a>
+            <a class="nav-link" href="../../Doador_requisitante/views/requisitante.php">Fazer Requisição</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#">Suporte</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="./doador.php">Sobre</a>
+            <a class="nav-link " href="">Sobre</a>
           </li>
-          
         </ul>
        
 

@@ -46,33 +46,17 @@
       <div class="sidebar" id="side_nav">
 
         <ul class="list-unstyled px-3 pt-3 pb-4 ">
-          <li class="active"><a href="./Meno.php" class="text-decoration-none px-2 py-2 d-block">Menu</a></li>
+          <li class="active"><a href="" class="text-decoration-none px-2 py-2 d-block">Menu</a></li>
           <hr class="h-color mx-2">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Doações
-            </a>
-            <ul class="dropdown-menu dropdown-menu-white">
-              <li><a class="dropdown-item" href="./Requisicao_sangue.php">Pedidos Requisição</a></li>
-              <li><a class="dropdown-item" href="./Doadores.php">Ver Doadores</a></li>
-              <li><a class="dropdown-item" href="./Doacoes.php">Ver Doações</a></li>
-
-
-            </ul>
-          </li>
-          <hr class="h-color mx-2">
-          <li class="oiu"><a href="./Ver_sangue.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-hand-holding-droplet"></i> Sangue</a></li>
-          <li class="oiu"><a href="./Transfusao.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-shuffle"></i> Trasfusão</a></li>
-          <li class=""><a href="./Ver_paciente.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-person"></i> Pacintes</a></li>
-
-        </ul>
+          <li class="oiu"><a href="./Agendar_doacao.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-hand-holding-droplet"></i>Agendar Doação</a></li>
+          <li class="oiu"><a href="" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-shuffle"></i>Doações Pendentes</a></li>
         <hr class="h-color  mx-2">
-        <ul class="list-unstyled px-2">
-          <li><a href="./AdicionarFuncionario.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-plus"></i> Novo Funcionario</a></li>
-          <li><a href="./Ver_funcionarios.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Funcionario</a></li>
+        <li class=""><a href="./dados_doador.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-person"></i> Visualizar Dados</a></li>
+          <li><a href="./AdicionarFuncionario.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-plus"></i> Historios de Doação</a></li>
+         
           <hr class="h-color mx-2">
-          <li><a href="./Ver_funcionarios.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Definições</a></li>
+          <li><a href="" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i>Proxima Doação</a></li>
+          <li><a href="" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Definições</a></li>
         </ul>
 
 

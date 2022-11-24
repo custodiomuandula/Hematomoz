@@ -32,4 +32,9 @@ body{
     height: 90vh;
     padding: 0px;
 }
+#foto img{
+    width:420px;
+    height: 255px;
+}
+
 
