@@ -55,7 +55,6 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-white">
               <li><a class="dropdown-item" href="./Requisicao_sangue.php">Pedidos Requisição</a></li>
-              <li><a class="dropdown-item" href="./Doadores.php">Ver Doadores</a></li>
               <li><a class="dropdown-item" href="./Doacoes.php">Ver Doações</a></li>
 
 
