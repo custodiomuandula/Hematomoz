@@ -1,4 +1,4 @@
-body{
+body {
   overflow-y: hidden;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -35,14 +35,14 @@ body{
   font-weight: 600;
   font-size: 20px;
   color: white;
-  
 }
 
-.novofunc, p {
+.novofunc,
+p {
   color: #da4a4a;
 }
 
-.input1{
+.input1 {
   margin-top: 15px;
   height: 50px;
 
@@ -90,7 +90,7 @@ table {
   height: 40px;
 }
 
-.abrir_documento{
+.abrir_documento {
   background-color: #55b1b8;
 
   color: white;

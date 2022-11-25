@@ -48,17 +48,10 @@ class Doador
         return $this->conta;
     }
 
-    public function selectLast()
-    {
-        $this->sql = $this->conexao->query("SELECT id FROM funcionario ORDER BY id DESC LIMIT 1");
-        $this->sql->execute();
-        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
-        return $this->dados;
-    }
 
     public function delete($id)
     {
-        $this->sql = $this->conexao->prepare("DELETE FROM funcionario WHERE id='$id'");
+        $this->sql = $this->conexao->prepare("DELETE FROM doador WHERE id='$id'");
         $this->sql->execute();
         $this->conta = $this->sql->rowCount();
 
