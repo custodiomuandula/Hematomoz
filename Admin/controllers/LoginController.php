@@ -9,7 +9,7 @@ class LoginFuncionario
     private $password;
     private $username;
     private $dados;
-    private $verificaSenha;
+    private $verificapassword;
 
     public function verificar()
     {
@@ -26,9 +26,14 @@ class LoginFuncionario
 
             if (!empty($this->dados)) {
 
-                $this->senhaUser = $this->dados->senha;
+                $this->passwordUser = $this->dados->password;
 
-                $this->verificaSenha = password_verify($this->password, $this->senhaUser);
+                $this->verificapassword = password_verify($this->password, $this->passwordUser);
+
+                if($this->passwordUser == "novouser"){
+                    $_SESSION['sucesso'] = "Bem Vindo ao Hematomoz. Proceda com o registro da tua password.";
+                    header("location: ../views/RecuperarPassword.php");
+                }
 
                 if($this->dados->perfil != 'doador'){
                     if ($this->verificaSenha) {

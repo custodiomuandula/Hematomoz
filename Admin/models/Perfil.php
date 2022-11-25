@@ -24,49 +24,49 @@ class Perfil
         return $this->dados;
     }
 
+    public function selectByEmail($email)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM perfil JOIN funcionario WHERE id_func=funcionario.id AND email like '$email'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
     public function insert($params = [])
     {
-        $this->sql = $this->conexao->prepare("INSERT INTO perfil (username, senha, perfil, id_administrador, id_gestor, id_cliente) VALUES (:username, :senha, :perfil, :id_administrador, :id_gestor, :id_cliente)");
+        $this->sql = $this->conexao->prepare("INSERT INTO perfil (username, password, perfil, id_func, id_doador) VALUES (:username, :password, :perfil, :id_func, :id_doador)");
         $this->sql->execute($params);
         $this->conta = $this->sql->rowCount();
         return $this->conta;
     }
 
-    public function updateAdmin($params = [])
+    public function updateFunc($params = [])
     {
-        $this->sql = $this->conexao->prepare("UPDATE perfil SET username=:username WHERE id_administrador=:id");
+        $this->sql = $this->conexao->prepare("UPDATE perfil SET username=:username, perfil=:perfil WHERE id_func=:id");
         $this->sql->execute($params);
         $this->conta = $this->sql->rowCount();
         return $this->conta;
     }
 
-    public function updateGestor($params = [])
+    public function deleteFunc($id)
     {
-        $this->sql = $this->conexao->prepare("UPDATE perfil SET username=:username WHERE id_gestor=:id");
-        $this->sql->execute($params);
-        $this->conta = $this->sql->rowCount();
-        return $this->conta;
-    }
-
-    public function deleteAdmin($id)
-    {
-        $this->sql = $this->conexao->prepare("DELETE FROM perfil WHERE id_administrador='$id'");
+        $this->sql = $this->conexao->prepare("DELETE FROM perfil WHERE id_func='$id'");
         $this->sql->execute();
         $this->conta = $this->sql->rowCount();
         return $this->conta;
     }
 
-    public function deleteGestor($id)
+    public function deleteDoador($id)
     {
-        $this->sql = $this->conexao->prepare("DELETE FROM perfil WHERE id_gestor='$id'");
+        $this->sql = $this->conexao->prepare("DELETE FROM perfil WHERE id_doador='$id'");
         $this->sql->execute();
         $this->conta = $this->sql->rowCount();
         return $this->conta;
     }
 
-    public function alterarSenha($params = [])
+    public function alterarPassword($params = [])
     {
-        $this->sql = $this->conexao->prepare("UPDATE perfil SET senha=:senha WHERE id_perfil=:id");
+        $this->sql = $this->conexao->prepare("UPDATE perfil SET password=:password WHERE id=:id");
         $this->sql->execute($params);
         $this->conta = $this->sql->rowCount();
         return $this->conta;
