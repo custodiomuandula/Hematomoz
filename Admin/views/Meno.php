@@ -6,7 +6,7 @@ include 'head2.php';
   <div class="container  d-flex" style="margin-top:-150px;">
 
 
-    <div id="a" class="w-50 mt-4 border bg-light ms-3 border border-danger rounded" style="height:250px ; background-color: whitesmoke !important; color:#D26464">
+    <div id="a" class="w-50 mt-4 div1 border bg-light ms-3 border border-danger rounded">
 
       <h3 style="color:#D26464 ;" class="mt-3 ms-3 fw-bold"> <i class="fa-solid fa-hand-holding-droplet ms-2"></i> Estatisticas</h3>
       <p class="ms-4 mt-3">Numero de Doações de (hoje): 50</p>
@@ -18,7 +18,7 @@ include 'head2.php';
 
     </div>
 
-    <div id="a" class="mt-2 w-50 border bg-light ms-3 mt-4 bg-light ms-3 border border-danger rounded " style="height:250px; background-color: whitesmoke !important;">
+    <div id="a" class="mt-2 w-50 div2 border bg-light ms-3 mt-4 bg-light ms-3 border border-danger rounded ">
 
       <h3 style="color:#D26464 ;" class="fw-bold mt-3"> <i class="fa-solid fa-hand-holding-droplet ms-2"></i> Stock de Sangue</h3>
       <p class="ms-3 ">Bolsas de sangue diponiveis: 100</p>
@@ -61,7 +61,7 @@ include 'head2.php';
 
   <div class="container d-flex mt-3">
 
-    <div id="a" class="mt-2 w-50 border bg-light ms-3bg-light ms-3 border border-danger rounded " style="height:250px; background-color: whitesmoke !important;color:#D26464 ">
+    <div id="a" class="mt-2 w-50 border div3 bg-light ms-3bg-light ms-3 border border-danger rounded ">
 
       <h3 style="color:#D26464 ;" class="fw-bold mt-3"> <i class="fa-solid fa-calendar-week ms-2"></i> Agendamento de Doação</h3>
       <h6 class="ms-4"> Data: 02/05/2022</h6>
@@ -75,7 +75,7 @@ include 'head2.php';
 
     </div>
 
-    <div id="a" class="mt-2 w-50 border bg-light ms-3 bg-light ms-3 border border-danger rounded" style="height:250px;  background-color: whitesmoke !important;color:#D26464 "></a>
+    <div id="a" class="mt-2 w-50 border bg-light ms-3 bg-light ms-3 border border-danger rounded div4" ></a>
 
       <h3 style="color:#D26464 ;" class="fw-bold mt-3"> <i class="fa-solid fa-calendar-week ms-2"></i> Requisições de Doação</h3>
       <h6 class="ms-4">Novas Requisições (5)</h6>
