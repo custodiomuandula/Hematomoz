@@ -39,7 +39,7 @@
 
             <nav class="navbar">
 
-                <h4 class="mx-auto dash my-2">Dashboard</h4>
+                <h4 class="mx-auto dash my-2"><a href="./Meno.php " class="text-decoration-none" style="color:white;">Dashboard</a></h4>
 
                 <span class="text-white w-100 mx-auto border my-3"></span>
 

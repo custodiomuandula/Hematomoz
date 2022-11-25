@@ -1,12 +1,12 @@
 <?php
-include 'head.php';
+include 'head2.php';
 ?>
 
 <div class="dashboard-content">
-  <div class="container  d-flex mt-2">
+  <div class="container  d-flex" style="margin-top:-150px;">
 
 
-    <div id="a" class="mt-4  w-50 border bg-light ms-3 border border-danger rounded" style="height:250px ; background-color: whitesmoke !important; color:#D26464">
+    <div id="a" class="w-50 mt-4 border bg-light ms-3 border border-danger rounded" style="height:250px ; background-color: whitesmoke !important; color:#D26464">
 
       <h3 style="color:#D26464 ;" class="mt-3 ms-3 fw-bold"> <i class="fa-solid fa-hand-holding-droplet ms-2"></i> Estatisticas</h3>
       <p class="ms-4 mt-3">Numero de Doações de (hoje): 50</p>
@@ -14,7 +14,7 @@ include 'head.php';
       <p class="ms-4">Qantidade de sangue adiquirido(hoje): 100L</p>
       <p class="ms-4">Testes realisados:10</p>
       <p></p>
-      <div class="d-flex justify-content-end " style="margin-top:-50px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+      <div class="d-flex justify-content-end " style="margin-top:-10px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
 
     </div>
 
@@ -50,11 +50,11 @@ include 'head.php';
 
         </div>
 
-    
+
       </div>
-      <div class="d-flex justify-content-end " style="margin-top:-50px  ;color:#D26464 ;"> <a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+      <div class="d-flex justify-content-end " style="margin-top:-10px  ;color:#D26464 ;"> <a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
     </div>
-    
+
 
 
   </div>
@@ -71,7 +71,7 @@ include 'head.php';
       <h6 class="ms-4">Hopital de zimpeto</h6>
       <h6 class="ms-4">Hopital de Mavalane</h6>
 
-      <div class="d-flex justify-content-end " style="margin-top:-65px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+      <div class="d-flex justify-content-end " style="margin-top:-20px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
 
     </div>
 
@@ -80,11 +80,11 @@ include 'head.php';
       <h3 style="color:#D26464 ;" class="fw-bold mt-3"> <i class="fa-solid fa-calendar-week ms-2"></i> Requisições de Doação</h3>
       <h6 class="ms-4">Novas Requisições (5)</h6>
       <p class="ms-5">Entidades Requisitantes: Hospital cental de Maputo, Hospital de Mavalane, Hospital Jose Macamo, Clinica Africa, Clinica Cruz azul</p>
-      <div class="d-flex justify-content-end " style="margin-top:40px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
-       
+      <div class="d-flex justify-content-end " style="margin-top:90px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+
     </div>
 
-       
+
 
   </div>
 
