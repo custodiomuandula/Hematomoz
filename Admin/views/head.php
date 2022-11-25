@@ -52,7 +52,7 @@
           <li><a class="dropdown-item" href="./Requisicao_sangue.php">Requisições</a></li>
           <li><a class="dropdown-item" href="./Doacoes.php">Doadores</a></li>
           <hr class="h-color mx-2">
-          <li class=""><a href="./Ver_sangue.php" class="text-decoration-none px-3 py-2 d-block dropdown-item"><i class="fa-solid fa-hand-holding-droplet"></i> Sangue</a></li>
+          
           <li class=""><a href="./Transfusao.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-shuffle"></i> Trasfusão</a></li>
           <li class=""><a href="./Ver_paciente.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-person"></i> Pacintes</a></li>
 
