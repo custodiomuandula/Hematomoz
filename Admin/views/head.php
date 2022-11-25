@@ -10,7 +10,8 @@
   <script src="../../assets/js/jquery.js"></script>
   <script src="../../assets/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../../assets/css/home_admin.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="../../Admin/assets/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
@@ -48,27 +49,16 @@
         <ul class="list-unstyled px-3 pt-3 pb-4 ">
           <li class="active"><a href="./Meno.php" class="text-decoration-none px-2 py-2 d-block">Menu</a></li>
           <hr class="h-color mx-2">
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Doações
-            </a>
-            <ul class="dropdown-menu dropdown-menu-white">
-              <li><a class="dropdown-item" href="./Requisicao_sangue.php">Pedidos Requisição</a></li>
-              <li><a class="dropdown-item" href="./Doadores.php">Ver Doadores</a></li>
-              <li><a class="dropdown-item" href="./Doacoes.php">Ver Doações</a></li>
-
-
-            </ul>
-          </li>
+          <li><a class="dropdown-item" href="./Requisicao_sangue.php">Requisições</a></li>
+          <li><a class="dropdown-item" href="./Doacoes.php">Doadores</a></li>
           <hr class="h-color mx-2">
-          <li class="oiu"><a href="./Ver_sangue.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-hand-holding-droplet"></i> Sangue</a></li>
-          <li class="oiu"><a href="./Transfusao.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-shuffle"></i> Trasfusão</a></li>
+          <li class=""><a href="./Ver_sangue.php" class="text-decoration-none px-3 py-2 d-block dropdown-item"><i class="fa-solid fa-hand-holding-droplet"></i> Sangue</a></li>
+          <li class=""><a href="./Transfusao.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-shuffle"></i> Trasfusão</a></li>
           <li class=""><a href="./Ver_paciente.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-person"></i> Pacintes</a></li>
 
-        </ul>
+        
         <hr class="h-color  mx-2">
-        <ul class="list-unstyled px-2">
+    
           <li><a href="./AdicionarFuncionario.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-plus"></i> Novo Funcionario</a></li>
           <li><a href="./Ver_funcionarios.php" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-user-doctor m"></i> Funcionario</a></li>
           <hr class="h-color mx-2">
@@ -77,15 +67,11 @@
 
 
         <script>
-          
-        $(".sidebar ul li").on('click', function() {
-          $(".sidebar ul li.active").removeClass('active');
-          $(this).addClass('active');
+          $(".sidebar ul li").on('click', function() {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
 
-        })
-      </script>
+          })
+        </script>
 
       </div>
-
-
-

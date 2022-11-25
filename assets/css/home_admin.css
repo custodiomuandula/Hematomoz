@@ -10,7 +10,7 @@ body{
 .dashboard-content{
     width: 100vw;
     height: 100vh;
-    background-color: #D9F3F5;
+    background-color: #F5F5F5 !important;
 
 }
 
