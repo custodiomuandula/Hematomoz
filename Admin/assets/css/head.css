@@ -1,4 +1,4 @@
-body{
+body {
   overflow-y: hidden;
 }
 
@@ -34,14 +34,14 @@ body{
   font-weight: 600;
   font-size: 20px;
   color: white;
-  
 }
 
-.novofunc, p {
+.novofunc,
+p {
   color: #da4a4a;
 }
 
-.input1{
+.input1 {
   margin-top: 15px;
   height: 50px;
 
@@ -89,10 +89,17 @@ table {
   height: 40px;
 }
 
-.abrir_documento{
+.abrir_documento {
   background-color: #55b1b8;
 
   color: white;
   font-weight: 700 !important;
   border-radius: 0 !important;
+}
+
+.a {
+  background-blend-mode: color-burn;
+  border: 1px solid #da4a4a;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
 }

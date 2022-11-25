@@ -1,5 +1,5 @@
 <?php
-include 'head.php';
+include 'head2.php';
 ?>
 
 <div class="dashboard-content">
