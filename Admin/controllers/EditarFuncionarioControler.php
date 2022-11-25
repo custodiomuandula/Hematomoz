@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST'] = 'POST') {
     $dados = [
         'nome' => trim($_POST['nome']),
         'nr_bi' => $_POST['nr_bi'],
-        'data_nascimento' => $data_nascimento = $_POST['data_nascimento'],
+        'data_nascimento' => $_POST['data_nascimento'],
         'tel1' => $_POST['tel1'],
         'tel2' => $_POST['tel2'],
         'nacionalidade' => $_POST['nacionalidade'],
@@ -21,15 +21,12 @@ if ($_SERVER['REQUEST'] = 'POST') {
         'id' => $_POST['id']
     ];
 
+    $id_func = $_POST['id'];
 
     $func = new Funcionario();
     $perfil = new Perfil();
 
-    if($func->update($dados)){
-
-        $id_func = $_POST['id'];
-
-        $password = rand(1000,9999);
+    if($func->update($dados) == 1){
 
         $dados = [
             'username' => trim($_POST['nome']),
@@ -40,14 +37,15 @@ if ($_SERVER['REQUEST'] = 'POST') {
         if($perfil->updateFunc($dados)){
 
             $_SESSION['sucesso'] = "Funcionario Actualizado com sucesso";
-           header("location: ../views/VerFuncionarios.php");
+            header("location: ../views/VerFuncionarios.php");
         }else{
             $_SESSION['erro'] = "Erro ao tentar actualizar funcionario. Tente Novamente";
-            header("location: ../views/EditarFuncionario.php?id=$id_func");
+            //header("location: ../views/EditarFuncionario.php?id=$id_func");
         }
 
     }else{
         $_SESSION['erro'] = "Erro ao tentar actualizar funcionario. Tente Novamente";
-        header("location: ../views/EditarFuncionario.php?id=$id_func");
+        //header("location: ../views/EditarFuncionario.php?id=$id_func");
+        echo "bug";
     }
 }

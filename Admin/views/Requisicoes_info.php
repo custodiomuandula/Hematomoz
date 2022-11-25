@@ -1,73 +1,63 @@
+<?php include_once '../views/head2.php'; ?>
+
 <?php
-include 'head.php';
+include_once '../models/Requisicao.php';
+
+$req = new Requisicao();
+
+if(isset($_GET['id'])){
+
+$dados = $req->selectOne($_GET['id']);
+$conteudo = $req->selectConteudo($_GET['id']);
+}
+
 ?>
 
-<div class="dashboard-content">
-    <div class="container" style="color:#DA4A4A">
-        <h3 class="text-center mt-3"><i class="fa-solid fa-user-plus"></i> Requisições de Doações</h3>
 
-        <h5 class=" text-center mt-3"> <span class="fw-bold"> Hospital central de Maputo</span></h5>
-    </div>
+<div class="container otherside">
 
-    <div class="container  d-flex mt-3 h-25">
+    <h3 class="text-center my-4 novofunc" style="font-weight: 700;">Requisicao de Sangue</h3>
+    <h5 class="text-center novofunc mt-0" style="font-weight: 700;">(<?php echo $dados->nome_instituicao ?>)</h5>
 
+    <small class="ms-5" style="color: #DA4A4A;">Estado: <?php echo $dados->estado ?></small>
+    <div class="container d-flex mt-5 justify-content-center">
+        <div class="container c1">
 
+            <p class="ms-5 mt-3">Endereço: <span class="fw-bold"><?php echo $dados->reqendereco ?></span> </p>
+            <p class="ms-5">Email: <span class="fw-bold"><?php echo $dados->reqemail ?></span> </p>
+            <p class="ms-5">Contantos: <span class="fw-bold"><?php echo $dados->reqtel1." ou ".$dados->reqtel2 ?></span> </p>
 
-        <div class="mt-4  w-50 bg-light ms-5  " style="height:250px ; background-color: whitesmoke !important; color:#D26464">
-
-            <div class="ms-5">
-                <p class="ms-5 mt-3">Endereço: <span class="fw-bold">Cidade de Maputo</span> </p>
-                <p class="ms-5">Email: <span class="fw-bold">Hcentalmaputo@gmail.com</span> </p>
-                <p class="ms-5">Contanto: <span class="fw-bold">1234567 ou 846106673</span> </p>
-                <div class="ms-5 w-50 text-center " style="background-color: #55b1b8; color:whitesmoke ;  height: 35px">
-                    <p><span class="fw-bold">Abrir o documento</span></p>
-                </div>
+            <a href="" class="btn abrir_documento ms-5 w-75">Abrir Documento</a>
 
 
-            </div>
         </div>
 
-        <div class="mt-2 w-50  mt-4 bg-light ms-3 " style="height:250px ; background-color: whitesmoke !important; color:#D26464">
-
-            <table class="w-50 table table-striped" style="  border: 1px solid #D26464; border-collapse: collapse;color:#DA4A4A ">
+        <div class="container c2">
+            <table class="w-50 table table-striped mx-auto" style="  border: 1px solid #D26464; border-collapse: collapse;color:#DA4A4A; ">
                 <thead>
-                    <tr>
-                        <th>Tipo de sangue</th>
-                        <th>Quantidade</th>
-                       
-                    </tr>
+                    <th>Tipo de sangue</th>
+                    <th>Quantidade</th>
                 </thead>
                 <tbody>
-                    <tr class="text-center"  style="color:#DA4A4A" >
-                        <td>A+</td>
-                        <td>2L</td>
+                    <?php foreach($conteudo as $key => $value){ ?>
+                    <tr>
+                        <td><?php echo $value->tipo_sanguineo ?></td>
+                        <td><?php echo $value->quantidade ?> litros</td>
+                        
                     </tr>
+                    <?php } ?>
                 </tbody>
 
+
             </table>
-
         </div>
-
-
-
     </div>
 
-    <div class="container d-flex mt-5 w-50">
-
-        <div class="container my-3 ms-5 mt-5">
-
-        <button class="btn login me-3" type="submit"><i class="fa-solid fa-check"></i> Confirmar</button>
-                        <a class="btn cancelar" href=""><i class="fa-solid fa-xmark"></i> Cancelar</a>
-                    </div>
-                </div>
-
-
-
-
+    <div class=" mt-5 clearfix">
+        <a href="" class="btn guardar cancelar float-end me-5">Rejeitar</a>
+        <a href="" class="btn guardar float-end me-3">Aceitar</a>
     </div>
-
-
-
 
 </div>
+
 </div>

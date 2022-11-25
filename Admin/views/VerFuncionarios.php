@@ -62,10 +62,30 @@ $dados = $func->selecAll();
                         <td><?php echo $value->email; ?></td>
                         <td>
                             <a href=""><i class="fa-solid fa-circle-info"></i></a>
-                            <a href="../views/EditarFuncionario.php?id=<?php echo $value->func_id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href=""><i class="fa-solid fa-trash"></i></a>
+                            <a href="../views/EditarFuncionario.php?id=<?php echo $value->funcid ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="" data-bs-toggle='modal' data-bs-target="#delete<?php echo $value->funcid ?>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
+
+                    <div class="modal" id="delete<?php echo $value->funcid ?>">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title"> <i class="fa-solid fa-trash-can"></i> Apagar Funcionario</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    Deseja apagar o Funcionario <?php echo $value->nome ?> ?
+                                </div>
+
+                                <div class="modal-footer">
+                                    <a href="../controllers/DeleteFuncionarioController.php?id=<?php echo $value->funcid ?>" class="btn btn-danger">Sim</a>
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Não</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                 <?php $conta++;
                 } ?>

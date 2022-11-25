@@ -8,8 +8,8 @@ if(isset($_GET['id'])){
     $func = new Funcionario();
     $perfil = new Perfil();
 
-    if($func->delete($_GET['id'])){
-        $perfil->deleteFunc($_GET['id']);
+    if($perfil->deleteFunc($_GET['id']) == 1){
+        $func->delete($_GET['id']);
 
         $_SESSION['sucesso'] = "Funcionario apagado com sucesso";
         header("location: ../views/VerFuncionarios.php");

@@ -1,4 +1,6 @@
-
+body{
+  overflow-y: hidden;
+}
 
 .head {
   height: 100px !important;
@@ -32,9 +34,10 @@
   font-weight: 600;
   font-size: 20px;
   color: white;
+  
 }
 
-.novofunc {
+.novofunc, p {
   color: #da4a4a;
 }
 
@@ -55,6 +58,12 @@
   color: white !important;
 
   font-weight: 700 !important;
+}
+
+.cancelar {
+  background: #da4a4a !important;
+  border: 2px solid #da4a4a !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 th,
@@ -78,4 +87,12 @@ table {
   border-radius: 10px !important;
   width: 281px;
   height: 40px;
+}
+
+.abrir_documento{
+  background-color: #55b1b8;
+
+  color: white;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
 }
