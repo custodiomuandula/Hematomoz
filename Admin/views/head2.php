@@ -47,10 +47,10 @@
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Doacoes</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-hand-holding-heart"></i> Doacoes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Transfusoes</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-heart-pulse"></i> Transfusoes</a>
                         </li>
                         
 
@@ -62,10 +62,10 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Doadores</a>
+                            <a class="nav-link" href="./VerDoadores.php"><i class="fa-solid fa-user-plus"></i> Doadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pacientes</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-user-injured"></i> Pacientes</a>
                         </li>
 
                     </ul>
@@ -76,10 +76,10 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../views/VerFuncionarios.php"><i class="fa-solid fa-user-doctor m"></i> Funcionarios</a>
+                            <a class="nav-link" href="../views/VerFuncionarios.php"><i class="fa-solid fa-user-doctor"></i> Funcionarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../views/AdicionarFuncionario.php">Novo Funcionario</a>
+                            <a class="nav-link" href="../views/AdicionarFuncionario.php"><i class="fa-solid fa-user-pen"></i> Novo Funcionario</a>
                         </li>
 
                     </ul>

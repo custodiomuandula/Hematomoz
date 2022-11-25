@@ -2,7 +2,7 @@
 
 <div class="container otherside">
 
-    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-plus"></i> Novo Funcionario</h3>
+    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-pen"></i> Novo Funcionario</h3>
 
     <?php if (isset($_SESSION['erro'])) { ?>
         <div class="alert alert-danger alert-dismissible w-50 mx-auto">
