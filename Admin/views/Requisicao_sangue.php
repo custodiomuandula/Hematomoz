@@ -1,36 +1,56 @@
-<?php
-include  '../../Admin/views/head.php'
+<?php include_once '../views/head2.php'; ?>
+
+<?php 
+include_once '../models/Requisicao.php';
+
+$req = new Requisicao();
+
+$dados = $req->selecAll();
+
 ?>
-<div class="dashboard-content">
-
-    <div class="container mt-4">
-        <div class="" style="color:#DA4A4A">
-        <h3 class="text-center">Requisições Doações <i class="fa-light fa-clipboard-medical"></i></h3>
-        </div>
-        <div class="container d-flex mt-3 w-75">
-
-<table class="table table-striped mt-4" style="color:#DA4A4A ; ">
-              <thead>
-                  <th>Nome da Intituição</th>
-                  <th>Data da Requisição</th>  
-                  <th>Data da Entrega</th> 
-              </thead>
-              <tbody>
-
-                  <tr style="color:#DA4A4A";>
-                      <td>Hospital Cental de Maputo</td>
-                      <td>04/06/2021</td>
-                      <td>04/06/2021</td>
-                      <td><a href="./Requisicoes_info.php" style="color: #DA4A4A;"><i class="fa-solid fa-circle-info"></i></a></td>
-                  </tr>
-              </tbody>
-              
-
-          </table>
 
 
+<div class="container otherside">
 
+<h3 class="text-center my-4 novofunc" style="font-weight: 700;">Requisicoes de Sangue</h3>
+
+
+<div class="container">
+    <table class="table table-striped">
+
+        <thead>
+            <th>Nr</th>
+            <th>Nome da Intituição</th>
+            <th>Data da Requisição</th>
+            <th>Data da Entrega</th>
+            <th>Estado</th>
+        </thead>
+
+        <tbody>
+
+            <?php $conta = 1;
+            foreach ($dados as $key => $value) { ?>
+                <tr>
+                    <td><?php echo $conta; ?></td>
+                    <td><?php echo $value->nome_instituicao; ?></td>
+                    <td><?php echo $value->data_requisicao; ?></td>
+                    <td><?php echo $value->data_entrega; ?></td>
+                    <td><?php echo $value->estado; ?></td>
+                    <td>
+                        <a href="./Requisicoes_info.php?id=<?php echo $value->reqid ?>"><i class="fa-solid fa-circle-info"></i></a>
+                    </td>
+                </tr>
+
+            <?php $conta++;
+            } ?>
+
+        </tbody>
+
+
+    </table>
 
 </div>
-    </div>
- </div>   
+
+</div>
+
+</div>

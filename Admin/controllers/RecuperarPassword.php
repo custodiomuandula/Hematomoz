@@ -11,8 +11,5 @@ if($_SERVER['REQUEST'] = 'POST'){
 
     $perfil = new Perfil();
 
-   // $dados = $perfil->selectByEmail($email);
+   $dados = $perfil->selectByEmail($email);
 }
-
-
-?>
