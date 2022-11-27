@@ -11,7 +11,7 @@ $dados = $func->selecAll();
 
 <div class="container otherside">
 
-    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-doctor m"></i> Pacientes</h3>
+    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-injured"></i> Pacientes</h3>
 
     <?php if (isset($_SESSION['sucesso'])) { ?>
         <div class="alert alert-success alert-dismissible w-50 mx-auto">
@@ -55,7 +55,7 @@ $dados = $func->selecAll();
                         <td><?php echo $value->email; ?></td>
                         <td>
                             <a href=""><i class="fa-solid fa-circle-info"></i></a>
-                            <a href="../views/EditarDoador.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="../views/EditarPaciente.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="" data-bs-toggle='modal' data-bs-target="#delete<?php echo $value->id ?>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
@@ -64,7 +64,7 @@ $dados = $func->selecAll();
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title"> <i class="fa-solid fa-trash-can"></i> Apagar Doador</h4>
+                                    <h4 class="modal-title"> <i class="fa-solid fa-trash-can"></i> Apagar Paciente</h4>
                                 </div>
 
                                 <div class="modal-body">
@@ -72,7 +72,7 @@ $dados = $func->selecAll();
                                 </div>
 
                                 <div class="modal-footer">
-                                    <a href="../controllers/DeleteDoadorController.php?id=<?php echo $value->id ?>" class="btn btn-danger">Sim</a>
+                                    <a href="../controllers/DeletePacienteController.php?id=<?php echo $value->id ?>" class="btn btn-danger">Sim</a>
                                     <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Não</button>
                                 </div>
                             </div>

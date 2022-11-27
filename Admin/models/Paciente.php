@@ -27,7 +27,7 @@ class Paciente
 
     public function selectOne($id)
     {
-        $this->sql = $this->conexao->query("SELECT * FROM doador WHERE id='$id'");
+        $this->sql = $this->conexao->query("SELECT * FROM paciente WHERE id='$id'");
         $this->sql->execute();
         $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
         return $this->dados;
