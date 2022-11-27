@@ -16,12 +16,57 @@ class Doador
         return $this->conexao;
     }
 
-    public function selecAll()
+    public function selectAll()
     {
         $this->sql = $this->conexao->query("SELECT * FROM doador");
         $this->sql->execute();
         $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
         return $this->dados;
+    }
+
+    public function selecAllDoacoes()
+    {
+        $this->data = date("Y-m-d");
+        $this->sql = $this->conexao->query("SELECT doacao.id AS doacaoId, funcionario.nome as nomeM, doador.nome AS nomeD, data_doacao, local,estado,quantidade_sangue FROM doacao JOIN doador,funcionario WHERE data_doacao='$this->data' AND id_doador= doador.id AND funcionario.id=id_medico");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selecAllDoacoes2($data)
+    {
+        $this->sql = $this->conexao->query("SELECT doacao.id AS doacaoId, funcionario.nome as nomeM, doador.nome AS nomeD, data_doacao, local,estado,quantidade_sangue FROM doacao JOIN doador,funcionario WHERE data_doacao='$data' AND id_doador= doador.id AND funcionario.id=id_medico");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selecAllDoacoes3()
+    {
+        $this->data = date("Y-m-d");
+        $this->sql = $this->conexao->query("SELECT doacao.id AS doacaoId, funcionario.nome as nomeM, doador.nome AS nomeD, data_doacao, local,estado,quantidade_sangue FROM doacao JOIN doador,funcionario WHERE data_doacao<'$this->data' AND id_doador= doador.id AND funcionario.id=id_medico");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function count()
+    {
+        $this->data = date("Y-m-d");
+        $this->sql = $this->conexao->query("SELECT * FROM agendamento WHERE data_doacao='$this->data'");
+        $this->sql->execute();
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
+    }
+
+
+    public function countDoacoes()
+    {
+        $this->data = date("Y-m-d");
+        $this->sql = $this->conexao->query("SELECT * FROM doacao WHERE data_doacao='$this->data'");
+        $this->sql->execute();
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
     }
 
     public function selectOne($id)
@@ -31,6 +76,57 @@ class Doador
         $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
         return $this->dados;
     }
+
+    public function selectByName($nome)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doador WHERE nome like '%$nome%'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selectOneTriagem($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doador JOIN pre_triagem WHERE doador.id='$id' AND doador.id = id_doador");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selectOneAgendamento($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doador JOIN agendamento WHERE doador.id='$id' AND doador.id = id_doador");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+
+    public function selectOneDoacao($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doador JOIN doacao WHERE doador.id='$id' AND doador.id = id_doador");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+
+    public function selectLastDoacao($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doador JOIN doacao WHERE doador.id='$id' AND doador.id = id_doador ORDER BY doador.id DESC LIMIT 1");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selectQuantidade()
+    {
+        $this->sql = $this->conexao->query("SELECT SUM(quantidade_sangue) as quant FROM doacao WHERE data_doacao='$this->data'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
 
     public function insert($params = [])
     {
@@ -56,5 +152,14 @@ class Doador
         $this->conta = $this->sql->rowCount();
 
         return $this->conta;
+    }
+
+    public function selectToday()
+    {
+        $this->data = date('Y-m-d');
+        $this->sql = $this->conexao->query("SELECT local_doacao FROM agendamento WHERE data_agendamento='$this->data' LIMIT 3");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
     }
 }

@@ -22,7 +22,7 @@
 
         <div class="container-fluid">
             <img class="navbar-brand" src="../assets/fotos/Imagem.png">
-            <h3 class="text-white position-absolute" style="left: 110px;">HEMATOMOZ</h3>
+            <a href="./Menu.php" class="text-white position-absolute hema" style="left: 110px;">HEMATOMOZ</a>
             <!-- Links -->
             <ul class="navbar-nav ">
                 <li class="nav-item">
@@ -39,7 +39,7 @@
 
             <nav class="navbar">
 
-                <h4 class="mx-auto dash my-2"><a href="./Meno.php " class="text-decoration-none" style="color:white;">Dashboard</a></h4>
+                <h4 class="mx-auto dash my-3">Dashboard</a></h4>
 
                 <span class="text-white w-100 mx-auto border my-3"></span>
 
@@ -47,7 +47,7 @@
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-hand-holding-heart"></i> Doacoes</a>
+                            <a class="nav-link" href="./VerDoacoes.php"><i class="fa-solid fa-hand-holding-heart"></i> Doacoes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa-solid fa-heart-pulse"></i> Transfusoes</a>
@@ -65,7 +65,7 @@
                             <a class="nav-link" href="./VerDoadores.php"><i class="fa-solid fa-user-plus"></i> Doadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-user-injured"></i> Pacientes</a>
+                            <a class="nav-link" href="./VerPacientes.php"><i class="fa-solid fa-user-injured"></i> Pacientes</a>
                         </li>
 
                     </ul>
@@ -79,7 +79,7 @@
                             <a class="nav-link" href="../views/VerFuncionarios.php"><i class="fa-solid fa-user-doctor"></i> Funcionarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../views/AdicionarFuncionario.php"><i class="fa-solid fa-user-pen"></i> Novo Funcionario</a>
+                            <a class="nav-link" href="../views/NovoFuncionario.php"><i class="fa-solid fa-user-pen"></i> Novo Funcionario</a>
                         </li>
 
                     </ul>

@@ -1,67 +1,119 @@
 <?php
-include 'head.php';
+include_once './head2.php';
+include_once '../models/Doador.php';
 ?>
 
-<div class="dashboard-content">
-    <div class="container"  style="color:#DA4A4A">
-<h3 class="text-center mt-3"><i class="fa-solid fa-user-plus"></i> Doadores</h3>
+<?php
 
-<h5 class=" text-center mt-3"> <span class="fw-bold">(Elton Bata) </span></h5>
-</div>
+$doador = new Doador();
+$id = $_GET['id'];
+$doador1 = $doador->selectOne($id);
+$doador2 = $doador->selectOneTriagem($id);
+$doador3 = $doador->selectOneAgendamento($id);
+$doador4 = $doador->selectOneDoacao($id);
+$doador5 = $doador->selectLastDoacao($id);
+?>
 
-  <div class="container  d-flex mt-3 h-25">
-    
+<div class="container otherside" style="overflow-y: scroll;">
 
+  <h3 class="text-center mt-3 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-plus"></i> Doador</h3>
+  <h5 class=" text-center mt-3 novofunc" style="font-weight: 700;">(<?php echo $doador1->nome ?>)</h5>
+  <?php if ($doador5 != "") { ?> <p class="ms-3 text-center"><small>Ultima Doacao: 11/10/2022</small></p> <?php } ?>
+  <a href="./NovaDoacao.php" class="btn guardar" style="font-size: 15px;">+Registrar nova doacao</a>
 
-    <div class="mt-4  w-50 bg-light ms-5  " style="height:250px ; background-color: whitesmoke !important; color:#D26464">
-            
-         <div class="ms-5">
-            <p class="ms-5 mt-3">Tipo Sanguinho: <span class="fw-bold">+AB</span> </p>
-            <p  class="ms-5" >Data de Nascimento: <span class="fw-bold">02/03/2002</span> </p>
-            <p class="ms-5">Numero do Ducumento: <span class="fw-bold">123456789P</span> </p>
-            <p class="ms-5">Email: <span class="fw-bold"> 846106673 ou 846106673</span> </p>
-      
-            </div>
+  <div class="container d-flex align-items-center mt-5">
+    <p class="mx-3 mt-3"><small>Dados Pessoais</small></p>
+    <a href="./EditarDoador.php?id=<?php echo $id ?>" class="novofunc"><i class="fa-solid fa-pen-to-square"></i></a>
+  </div>
+  <div class="container-fluid d-flex ">
+    <div class="container " style="width: 300px;">
+
+      <p>Tipo Sanguineo: <b><?php echo $doador1->tipo_sanguineo ?></b></p>
+      <p>Data de Nascimento: <b><?php echo $doador1->data_nascimento ?></b></p>
+      <p>Document: <b><?php echo $doador1->nr_documento . " ($doador1->tipo_documento)" ?></b></p>
+      <p>Telefone: <b><?php echo $doador1->tel1 . " / " . $doador1->tel2 ?></b></p>
+
     </div>
 
-    <div class="mt-2 w-50  mt-4 bg-light ms-3 " style="height:250px ; background-color: whitesmoke !important; color:#D26464">
-      <p class="ms-4 mt-3">Pais de Nascimento: <span class="fw-bold">Moacambique</span> </p>
-      <p class="ms-4 mt-3">Morada: <span class="fw-bold">Maputo, Marracuene, mateque, casa 1,Q26</span> </p>
-      <p class="ms-4">Email: <span class="fw-bold">  Custodiomuandula@gmail.com</span> </p>
-
-     
-      
+    <div class="container" style="width: 300px;">
+      <p>Pais de Nascimento: <b><?php echo $doador1->pais_nascimento ?></b></p>
+      <p>Endereco: <b><?php echo $doador1->endereco ?></b></p>
+      <p>Email: <b><?php echo $doador1->email ?></b></p>
     </div>
-
-
 
   </div>
 
-  <div class="container d-flex mt-3 w-50">
+  <p class="container border my-4 w-75" style="border-color: #D26464 !important"></p>
 
-  <table class="table table-striped mt-5" style="color:#DA4A4A ; ">
-                <thead>
-                    <th>Agendamento Efetuados</th>
-                    <th>Doacoes Efetuados</th>  
-                </thead>
-                <tbody>
-
-                    <tr style="color:#DA4A4A";>
-                        <td>03/05/2022</td>
-                        <td>04/06/2021</td>
-                    </tr>
-                </tbody>
-                
-
-            </table>
+  <?php foreach ($doador2 as $key => $value) { ?>
+    <div class="container d-flex align-items-center">
+      <p class="mx-3 mt-3"><small>Pre-triagem</small></p>
+      <a href="" class="novofunc"><i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
+    <div class="container ms-5 d-flex justify-content-center">
+      <div class="container p-2">
 
 
+        <p>Anemico: <b><?php echo $value->anemico ?></b></p>
+        <p>Consome Alcool: <b><?php echo $value->consumo_alcool ?></b></p>
+        <p>Pratica Exercicios Fisicos: <b><?php echo $value->exercicios_fisicos ?></b></p>
+        <p>Habitos Alimentares: </p>
+        <p><b><?php echo $value->habitos_alimentares ?></b></p>
+      </div>
+
+      <div class="container border-start p-2" style="border-color: #D26464 !important">
+        <p>Altura: <b><?php echo $value->altura . " m" ?></b></p>
+        <p>Peso: <b><?php echo $value->peso . " kg" ?></b></p>
+        <p>Historico de Doencas: </p>
+        <p><b><?php echo $value->historico_doencas ?></b></p>
+      </div>
+
+      <div class="container border-start p-2" style="border-color: #D26464 !important">
+        <p>Estado de Saude: <b><?php echo $value->estado_saude ?></b></p>
+        <p>Temperatura: <b><?php echo $value->temperatura . " C" ?></b></p>
+        <p>Pressao Arterial: <b><?php echo $value->pressao_arterial ?></b></p>
+
+      </div>
+
+    </div>
+  <?php } ?>
+  <p class="container border my-4 w-75" style="border-color: #D26464 !important"></p>
+
+  <div class="container mb-5 w-50 d-flex">
+    <table class="table table-striped">
+
+      <thead>
+        <th>Agendamentos Efectuados</th>
+      </thead>
+
+      <tbody>
+        <?php foreach ($doador3 as $key => $value) { ?>
+          <tr>
+            <td><?php echo $value->data_doacao ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
 
 
+    </table>
+
+    <table class="table table-striped">
+
+      <thead>
+        <th>Doacoes Efectuadas</th>
+      </thead>
+
+      <tbody>
+        <?php foreach ($doador4 as $key => $value) { ?>
+          <tr>
+            <td><?php echo $value->data_doacao ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+
+
+    </table>
   </div>
-
-
-
 
 </div>
 </div>

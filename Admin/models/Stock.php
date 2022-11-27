@@ -1,7 +1,7 @@
 <?php
 include_once '../../config/db.php';
 
-class Requisicao
+class Stock
 {
     private $conexao;
     private $sql;
@@ -28,8 +28,7 @@ class Requisicao
 
     public function count()
     {
-        $this->data = date("Y-m-d");
-        $this->sql = $this->conexao->query("SELECT * FROM requisicao WHERE data_requisicao='$this->data'");
+        $this->sql = $this->conexao->query("SELECT * FROM requisicao");
         $this->sql->execute();
         $this->conta = $this->sql->rowCount();
         return $this->conta;
@@ -38,9 +37,9 @@ class Requisicao
     public function selectToday()
     {
         $this->data = date('Y-m-d');
-        $this->sql = $this->conexao->query("SELECT nome_instituicao FROM requisicao JOIN requisitante WHERE requisitante.id = id_requisitante AND data_requisicao='$this->data' LIMIT 3");
+        $this->sql = $this->conexao->query("SELECT nome_instituicao FROM requisicao JOIN requisitante WHERE requisitante.id = id_requisitante AND data_requisicao='$this->data'");
         $this->sql->execute();
-        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
         return $this->dados;
     }
 

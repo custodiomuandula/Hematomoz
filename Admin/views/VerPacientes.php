@@ -1,20 +1,17 @@
 <?php include_once './head2.php'; ?>
 
 <?php
-include_once '../models/Doador.php';
+include_once '../models/Paciente.php';
 
-$func = new Doador();
+$func = new Paciente();
 
-$dados = $func->selectAll();
+$dados = $func->selecAll();
 
-if (isset($_GET['id'])) {
-    echo $_GET['id'];
-}
 ?>
 
 <div class="container otherside">
 
-    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-plus"></i> Doadores</h3>
+    <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-doctor m"></i> Pacientes</h3>
 
     <?php if (isset($_SESSION['sucesso'])) { ?>
         <div class="alert alert-success alert-dismissible w-50 mx-auto">
@@ -26,8 +23,8 @@ if (isset($_GET['id'])) {
 
     <div class="container clearfix mb-5">
 
-        <a href="./NovoDoador.php" class="btn float-start guardar">+Novo Doador</a>
-        <input type="search" onkeyup="pesquisa(this.value)" id="pesquisa" class="form-control escolha float-end" placeholder="pesquise aqui...">
+        <a href="./NovoPaciente.php" class="btn float-start guardar">+Novo Paciente</a>
+        <input type="search" id="pesquisa" onkeyup="pesquisa(this.value)" class="form-control escolha float-end" placeholder="pesquise aqui...">
 
     </div>
 
@@ -57,8 +54,8 @@ if (isset($_GET['id'])) {
                         <td><?php echo $value->tel1 . " / " . $value->tel2; ?></td>
                         <td><?php echo $value->email; ?></td>
                         <td>
-                            <a href="./VerDoador.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-circle-info">edit</i></a>
-                            <a href="./EditarDoador.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href=""><i class="fa-solid fa-circle-info"></i></a>
+                            <a href="../views/EditarDoador.php?id=<?php echo $value->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="" data-bs-toggle='modal' data-bs-target="#delete<?php echo $value->id ?>"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
@@ -71,7 +68,7 @@ if (isset($_GET['id'])) {
                                 </div>
 
                                 <div class="modal-body">
-                                    Deseja apagar o Doador <?php echo $value->nome ?> ?
+                                    Deseja apagar o Paciente <?php echo $value->nome ?> ?
                                 </div>
 
                                 <div class="modal-footer">
@@ -100,11 +97,13 @@ if (isset($_GET['id'])) {
 <script>
     function pesquisa(str) {
 
+
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = function() {
             document.getElementById("body").innerHTML = this.responseText;
         }
-        xmlhttp.open("GET", "../controllers/SearchController.php?nome=" + str + "&perfil=doador");
+        xmlhttp.open("GET", "../controllers/SearchController.php?nome=" + str + "&perfil=paciente");
         xmlhttp.send();
+
     }
 </script>

@@ -47,7 +47,7 @@
             } ?>
 
             <div class="container w-50 mt-5">
-                <form action="./controllers/LoginController.php" method="POST" class="">
+                <form action="../controllers/RecuperarPassword.php" method="POST" class="">
 
                     <input type="email" class="form-control mb-3" name="email" placeholder="Introduza seu email" required>
                     <input type="password" class="form-control mb-3" name="password" placeholder="Novo password" required>
