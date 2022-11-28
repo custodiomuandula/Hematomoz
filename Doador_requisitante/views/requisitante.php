@@ -41,15 +41,20 @@ include '../../Doador_requisitante/views/head.php'
 
         <div class="container">
             
-        <div class="container" >
+        <div class="container">
                 <label class="form-label"> <i class="fa-solid fa-comment"></i> Assunto e Dircrição</label>
                 <textarea name="morada" cols="30" rows="10" class="form-control" required></textarea>
             </div>
            
           
             <div class="container my-3">
-                <button class="btn btn-success" type="submit" ><a href="" class="nav-link disabled" style="color:#eee;"><i class="fa-solid fa-paper-plane"></i>  Enviar</a></button>
-                <button class="btn btn-danger"> <a href="" class="nav-link disabled"  style="color:#eee;"> <i class="fa-solid fa-xmark"></i> Cancelar</a></button>
+            <div class="container clearfix p-0">
+                    <button type="submit" class="btn guardar mt-4 float-end ms-5"><i class="fa-solid fa-floppy-disk"></i> Enviar</button>
+                
+                    <button type="submit" class="btn cancelar mt-4 float-end"><i class="fa-solid fa-floppy-disk"> </i> Cancelar</button>
+                </div>
+                </div>
+                
             </div>
         </div>
     </form>

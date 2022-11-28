@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <script src="../../assets/js/jquery.js"></script>
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../../Admin/assets/css/index.css">
-    <link rel="stylesheet" href="../../assets/css/head.css">
+  <script src="../../assets/js/jquery.js"></script>
+  <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../../Admin/assets/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/head.css">
   <link rel="stylesheet" href="../../assets//css/bootstrap.min.css">
   <script src="../../assets/js/jquery.js"></script>
   <script src="../../assets/js/bootstrap.bundle.min.js"></script>
@@ -32,7 +32,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-      
+
           <li class="nav-item">
             <a class="nav-link" href="../../Doador_requisitante/views/requisitante.php">Fazer Requisição</a>
           </li>
@@ -43,16 +43,16 @@
             <a class="nav-link " href="">Sobre</a>
           </li>
         </ul>
-       
+
 
       </div>
       <div class=" d-flex justify-content-end" style="margin-top: -100px;">
         <ul class="navbar-nav">
-          <li class="nav-item "> 
+          <li class="nav-item ">
             <a href="../../Doador_requisitante/login.php" class="nav-link"> Fazer Login </a>
-          </li> 
+          </li>
         </ul>
-        </div>
+      </div>
     </div>
   </nav>
 

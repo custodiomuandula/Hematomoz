@@ -46,7 +46,14 @@
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../views/doador_log.php"><i class="fa-solid fa-hand-holding-heart"></i> Agendar Doacoes</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-hand-holding-heart"></i> Requisitar Doações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-thin fa-book-medical"></i> Requisições Pendentes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-hand-holding-heart"></i> Requisitar Doações</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa-solid fa-heart-pulse"></i>Visualizar Dados</a>
@@ -64,7 +71,7 @@
                             <a class="nav-link" href=""><i class="fa-solid fa-user-plus"></i>Historico</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-user-injured"></i> Proxima Doação</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-user-injured"></i>Requisição pendente</a>
                         </li>
 
                     </ul>

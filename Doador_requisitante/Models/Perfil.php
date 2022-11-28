@@ -1,0 +1,41 @@
+<?php
+include_once '../../config/db.php';
+
+class Perfil
+{
+   private $conexao;
+   private $sql;
+   private $conta;
+   private $dados = [];
+   private $dbConnection;
+
+    function __construct()
+    {
+        $this->dbConnection = new dbConnection();
+        $this->conexao = $this->dbConnection->connect();
+        return $this->conexao;
+    }
+
+    public function selectOne($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM perfil WHERE id_perfil='$id'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function insert($params = [])
+    {
+        $this->sql = $this->conexao->prepare("INSERT INTO perfil (username, password, perfil,id_doador) VALUES (:username, :senha,:perfil,:id_doador)");
+        $this->sql->execute($params);
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
+    }
+    public function login($params)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM perfil JOIN doador WHERE username='$params' AND id_doador=doador.id");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+}
