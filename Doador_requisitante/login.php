@@ -1,62 +1,59 @@
-<?php
-include '../Doador_requisitante/views/head.php';
-?>
+<?php include '../Doador_requisitante/views/head.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title></title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <script src="../assets/js/jquery.js"></script>
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../assets/css/Home.css">
-  <link rel="stylesheet" href="../assets/css/indexlog.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Admin/assets/css/bootstrap.min.css">
+    <script src="../Admin/assets/js/jquery.js"></script>
+    <script src="../Admin/assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../Admin/assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Login</title>
 </head>
- <div class="container  pt-5">
-        <div class="row ">
 
-            <div class="col-12 col-sm-8 col-md-6 m-auto ">
-                <div class="card">
-                    <div class="text-center mt-3">
-            
-                        <div class="w-50 m-auto ">
-                            <p class="text-center">
-                                Banco de Sangue empregado no salvamento de vidas e coletando sangue por todo o paise distribuindo por pais inteiro
-                            </p>
-                        </div>
-                        <h4>Doe Sangue, Salve vidas</h4>
-                    </div>
+<body>
 
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
 
-                    <div class="card-body ">
-                        <div class="text-center">
-                            <h3>Login</h3>
-                        </div>
-                        <form action="" class="">
-
-                            <input type="text" class="form-control my-4 py-2" placeholder="Username">
-                            <input type="text" class="form-control my-4 py-2" placeholder="Password">
-
-                            <div class="text-center">
-                                <button class="btn btn-primary w-25">Login</button>
-                                <div class=" d-flex justify-content-end mt-4">
-                                    <a href="" class="nav-link">Esqueceu-se da tua passaword ? </a>
-                                </div>
-                                <div class=" d-flex justify-content-start" style="margin-top: -37px;">
-                                    <a href="" class="nav-link">Criar Conta</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container principal ">
+            <div class="container d-flex justify-content-center">
+                <img src="../Admin/assets/fotos/Imagem.png" class="imagem">
             </div>
 
+            <div class="container w-75 text-center">
+                <p class="mensagem ">Banco de Sangue empregado no salvamento de vidas
+                    e colectando sangue por todo pais e distribuindo pelo
+                    país inteiro!!
+                </p>
+                <h5 class="" style="color: #DA4A4A; font-weight: 700;">Doe Sangue, Salve vidas</h5>
+            </div>
+
+
+
+            <div class="container w-50 mt-5">
+                <form action="./controllers/LoginController.php" method="POST" class="">
+
+                    <input type="text" class="form-control mb-3" name="username" placeholder="Username" required>
+                    <input type="password" class="form-control mb-3" name="password" placeholder="Password" required>
+
+                    <div class="text-center">
+                        <button class="btn login"><i class="fa-solid fa-lock"></i> Login</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="conatiner-fluid w-100 d-flex justify-content-end">
+                <a href="./views/RecuperarPassword.php" class="recuperacao">Esqueceu-se da sua password <i class="fa-solid fa-circle-question"></i> </a>
+            </div>
         </div>
 
     </div>
+    
+</body>
+
+</html>
    

@@ -92,7 +92,7 @@ $nrtransfusao = $transfusao->count();
         } ?>
       </p>
 
-      <div class="d-flex justify-content-end " style="margin-top:-20px ;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+      <div class="d-flex justify-content-end " style="margin-top:50px;"><a href="./Ver_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
 
     </div>
 
@@ -107,7 +107,7 @@ $nrtransfusao = $transfusao->count();
           echo $value->nome_instituicao . ", ";
         } ?>
       </p>
-      <div class="d-flex justify-content-end " style="margin-top:90px ;"><a href="./Requisicao_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
+      <div class="d-flex justify-content-end " style="margin-top:70px ;"><a href="./Requisicao_sangue.php" style="color:#D26464 "><i class="fa-solid fa-arrow-right me-2"></i></a></div>
 
     </div>
 
