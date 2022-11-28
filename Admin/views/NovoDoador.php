@@ -1,5 +1,6 @@
 <?php include_once './head2.php'; ?>
 
+
 <div class="container otherside">
 
     <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-pen"></i> Novo Doador</h3>

@@ -23,7 +23,7 @@ $dados = $func->selectOne($_GET['id']);
 
     <form action="../controllers/EditarPacienteController.php" method="POST">
 
-    <input type="hidden" name="id" value="<?php echo $dados->id ?>">
+        <input type="hidden" name="id" value="<?php echo $dados->id ?>">
         <div class="container-fluid d-flex">
             <div class="container">
                 <input type="text" class="form-control input1" name="nome" placeholder="Nome Completo" required value="<?php echo $dados->nome ?>">
@@ -39,16 +39,16 @@ $dados = $func->selectOne($_GET['id']);
             <div class="container">
                 <select class="form-select w-25 me-2 input1 " name="sexo" required>
                     <option>Sexo</option>
-                    <option <?php if($dados->sexo == "M"){ ?> selected <?php } ?> value="M">M</option>
-                    <option <?php if($dados->sexo == "F"){ ?> selected <?php } ?> value="F">F</option>
+                    <option <?php if ($dados->sexo == "M") { ?> selected <?php } ?> value="M">M</option>
+                    <option <?php if ($dados->sexo == "F") { ?> selected <?php } ?> value="F">F</option>
                 </select>
 
                 <select class="form-select me-2 input1" name="tipo_documento" required>
                     <option>Tipo de documento</option>
-                    <option <?php if($dados->tipo_documento == "B.I"){ ?> selected <?php } ?> value="B.I">B.I</option>
-                    <option <?php if($dados->tipo_documento == "Cedula"){ ?> selected <?php } ?> value="Cedula">Cedula</option>
-                    <option <?php if($dados->tipo_documento == "Cartao de Eleitor"){ ?> selected <?php } ?> value="Cartao de Eleitor">Cartao de Eleitor</option>
-                    <option <?php if($dados->tipo_documento == "NUIT"){ ?> selected <?php } ?> value="NUIT">NUIT</option>
+                    <option <?php if ($dados->tipo_documento == "B.I") { ?> selected <?php } ?> value="B.I">B.I</option>
+                    <option <?php if ($dados->tipo_documento == "Cedula") { ?> selected <?php } ?> value="Cedula">Cedula</option>
+                    <option <?php if ($dados->tipo_documento == "Cartao de Eleitor") { ?> selected <?php } ?> value="Cartao de Eleitor">Cartao de Eleitor</option>
+                    <option <?php if ($dados->tipo_documento == "NUIT") { ?> selected <?php } ?> value="NUIT">NUIT</option>
                 </select>
                 <input type="text" class="form-control input1" name="nr_documento" placeholder="Numero de Documento" required value="<?php echo $dados->nr_documento ?>">
                 <textarea class="form-control input1" placeholder="Endereco" name="endereco" style="height: 115px;" required><?php echo $dados->endereco ?></textarea>

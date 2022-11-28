@@ -9,7 +9,7 @@ if(isset($_GET['id'])){
     $doador = new Doador();
     $perfil = new Perfil();
 
-    if($perfil->deleteDoador($_GET['id']) == 0){
+    if($perfil->deleteDoador($_GET['id']) == 1){
         $doador->delete($_GET['id']);
         $_SESSION['sucesso'] = "Doador apagado com sucesso";
         header("location: ../views/VerDoadores.php");

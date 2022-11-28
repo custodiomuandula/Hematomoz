@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,13 +34,21 @@
                 <h5 class="" style="color: #DA4A4A; font-weight: 700;">Doe Sangue, Salve vidas</h5>
             </div>
 
-            <?php if (isset($_SESSION['erro'])) { ?>
-                <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+            <?php if (isset($_SESSION['sucesso'])) { ?>
+                <div class="alert alert-success alert-dismissible w-50 mx-auto">
                     <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
-                    <?php echo $_SESSION['erro'];
-                    unset($_SESSION['erro']) ?>
+                    <?php echo $_SESSION['sucesso'];
+                    unset($_SESSION['sucesso']); ?>
                 </div>
-            <?php } ?>
+                <?php } else {
+                if (isset($_SESSION['erro'])) { ?>
+                    <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+                        <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                        <?php echo $_SESSION['erro'];
+                        unset($_SESSION['erro']) ?>
+                    </div>
+            <?php }
+            } ?>
 
             <div class="container w-50 mt-5">
                 <form action="./controllers/LoginController.php" method="POST" class="">
@@ -58,7 +68,7 @@
         </div>
 
     </div>
-    
+
 </body>
 
 </html>

@@ -44,7 +44,7 @@ class Doador
     public function selecAllDoacoes3()
     {
         $this->data = date("Y-m-d");
-        $this->sql = $this->conexao->query("SELECT doacao.id AS doacaoId, funcionario.nome as nomeM, doador.nome AS nomeD, data_doacao, local,estado,quantidade_sangue FROM doacao JOIN doador,funcionario WHERE data_doacao<'$this->data' AND id_doador= doador.id AND funcionario.id=id_medico");
+        $this->sql = $this->conexao->query("SELECT doacao.id AS doacaoId, funcionario.nome as nomeM, doador.nome AS nomeD, data_doacao, local,estado,quantidade_sangue FROM doacao JOIN doador,funcionario WHERE data_doacao<'$this->data' AND id_doador= doador.id AND funcionario.id=id_medico ORDER BY data_doacao DESC");
         $this->sql->execute();
         $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
         return $this->dados;
@@ -110,6 +110,14 @@ class Doador
         return $this->dados;
     }
 
+    public function selectOneDoacao1($id)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM doacao WHERE id='$id'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
 
     public function selectLastDoacao($id)
     {
@@ -131,6 +139,30 @@ class Doador
     public function insert($params = [])
     {
         $this->sql = $this->conexao->prepare("INSERT INTO doador (nome, tipo_documento,nr_documento, pais_nascimento, email, endereco, tel1, tel2, data_nascimento, id_assistente,sexo) VALUES (:nome, :tipo_documento,:nr_documento, :pais_nascimento, :email, :endereco, :tel1, :tel2, :data_nascimento, :id_assistente,:sexo)");
+        $this->sql->execute($params);
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
+    }
+
+    public function insertDoacao($params = [])
+    {
+        $this->sql = $this->conexao->prepare("INSERT INTO doacao (data_doacao, local,quantidade_sangue, estado, id_medico, id_doador) VALUES (:data_doacao, :local,:quantidade_sangue, :estado, :id_medico, :id_doador)");
+        $this->sql->execute($params);
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
+    }
+
+    public function insertPreTriagem($params = [])
+    {
+        $this->sql = $this->conexao->prepare("INSERT INTO pre_triagem (anemico, consumo_alcool,exercicios_fisicos, pressao_arterial, temperatura, peso,altura, historico_doencas, habitos_alimentares,id_doador) VALUES (:anemico, :alcool,:exercicios, :pressao, :temperatura, :peso,:altura, :doencas, :habitos,:id_doador)");
+        $this->sql->execute($params);
+        $this->conta = $this->sql->rowCount();
+        return $this->conta;
+    }
+
+    public function UpdateDoacao($params = [])
+    {
+        $this->sql = $this->conexao->prepare("UPDATE doacao SET local=:local,quantidade_sangue=:quantidade_sangue, estado=:estado WHERE id=:id");
         $this->sql->execute($params);
         $this->conta = $this->sql->rowCount();
         return $this->conta;

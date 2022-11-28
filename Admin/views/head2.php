@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +28,7 @@
             <!-- Links -->
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout ()</a>
+                    <a class="nav-link" href="../controllers/logoutController.php">Logout (<?php echo $_SESSION['username'] ?>)</a>
                 </li>
             </ul>
         </div>

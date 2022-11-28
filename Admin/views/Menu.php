@@ -1,3 +1,4 @@
+
 <?php
 include 'head2.php';
 include_once '../models/Requisicao.php';
@@ -27,7 +28,7 @@ $nrtransfusao = $transfusao->count();
 
     <div id="a" class="w-50 mt-4 div1 border bg-light ms-3 border border-danger rounded">
 
-      <h3 style="color:#D26464 ;" class="mt-3 ms-3 fw-bold"> <i class="fa-solid fa-hand-holding-droplet ms-2"></i> Estatisticas</h3>
+      <h3 style="color:#D26464 ;" class="mt-3 ms-3 fw-bold"><i class="fa-solid fa-chart-pie"></i> Estatisticas</h3>
       <p class="ms-4 mt-3">Numero de Doações de (hoje): <?php echo $nrdoacoes ?></p>
       <p class="ms-4">Numero de trasfuções (hoje): <?php echo $nrtransfusao ?></p>
       <p class="ms-4">Quantidade de sangue adiquirido(hoje): <?php echo $quantidadeSangue ?> litros</p>

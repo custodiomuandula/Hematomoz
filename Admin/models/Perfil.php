@@ -66,7 +66,7 @@ class Perfil
 
     public function alterarPassword($params = [])
     {
-        $this->sql = $this->conexao->prepare("UPDATE perfil SET password=:password WHERE id=:id");
+        $this->sql = $this->conexao->prepare("UPDATE perfil SET password=:password WHERE id_perfil=:id");
         $this->sql->execute($params);
         $this->conta = $this->sql->rowCount();
         return $this->conta;
@@ -74,7 +74,7 @@ class Perfil
 
     public function login($params)
     {
-        $this->sql = $this->conexao->query("SELECT * FROM perfil WHERE username='$params'");
+        $this->sql = $this->conexao->query("SELECT * FROM perfil JOIN funcionario WHERE username='$params' AND id_func=funcionario.id");
         $this->sql->execute();
         $this->dados = $this->sql->fetch(PDO::FETCH_OBJ);
         return $this->dados;

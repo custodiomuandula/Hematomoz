@@ -1,4 +1,29 @@
 <?php session_start(); ?>
+
+
+<?php
+include_once '../models/Perfil.php';
+
+$perfil = new Perfil();
+
+if (isset($_GET['password'])) {
+    $password = password_hash($_GET['password'], PASSWORD_BCRYPT);
+
+    $dados = [
+        'password' => $password,
+        'id' => $_GET['id']
+    ];
+
+    var_dump($dados);
+
+    if ($perfil->alterarPassword($dados) == 1) {
+        $_SESSION['sucesso'] = "A tua password foi definida com sucesso. Ja pode aceder ao sistema";
+    } else {
+        $_SESSION['erro'] = "Erro ao tentar definir a password. Tente Novamente";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

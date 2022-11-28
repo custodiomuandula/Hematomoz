@@ -1,4 +1,12 @@
+
 <?php include_once './head2.php'; ?>
+
+<?php
+include_once '../models/Doador.php';
+
+$doador = new Doador();
+$nome = $doador->selectOne($_GET['id'])->nome;
+?>
 
 <div class="container otherside">
 
@@ -14,35 +22,19 @@
 
     <form action="../controllers/AdicionarDoacaoController.php" method="POST">
 
-        <div class="container-fluid d-flex">
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+        <div class="container w-75">
             <div class="container">
-                <input type="text" class="form-control input1" name="nome" placeholder="Nome Completo" required>
+                <input type="text" class="form-control input1" name="nome" value="<?php echo $nome ?>" readonly>
                 <input type="date" class="form-control input1" name="" value="<?php echo date("Y-m-d"); ?>" readonly>
                 <input type="text" class="form-control input1" name="local_doacao" placeholder="Local da Doacao" required>
 
                 <input type="number" class="form-control input1" name="quantidade_sangue" placeholder="Quantidade de Sangue(litros)">
             </div>
 
-            <div class="container">
-
-                <?php if (isset($_GET['id'])) { ?>
-                    <select class="form-select w-25 me-2 input1 " name="sexo" required>
-                        <option><?php ?></option>
-                    </select>
-                <?php } ?>
-
-
-                <input type="text" class="form-control input1" name="nr_documento" placeholder="Numero de Documento" required>
-                <textarea class="form-control input1" placeholder="Endereco" name="endereco" style="height: 115px;"></textarea>
-
-
-                <div class="container clearfix p-0">
-                    <button type="submit" class="btn guardar mt-4 float-end"><i class="fa-solid fa-floppy-disk"></i> Registrar</button>
-                </div>
+            <div class="container clearfix p-0">
+                <button type="submit" class="btn guardar mt-4 float-end"><i class="fa-solid fa-floppy-disk"></i> Registrar</button>
             </div>
-
-        </div>
-
     </form>
 
 </div>

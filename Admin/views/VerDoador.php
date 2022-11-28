@@ -1,3 +1,4 @@
+
 <?php
 include_once './head2.php';
 include_once '../models/Doador.php';
@@ -19,7 +20,27 @@ $doador5 = $doador->selectLastDoacao($id);
   <h3 class="text-center mt-3 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-plus"></i> Doador</h3>
   <h5 class=" text-center mt-3 novofunc" style="font-weight: 700;">(<?php echo $doador1->nome ?>)</h5>
   <?php if ($doador5 != "") { ?> <p class="ms-3 text-center"><small>Ultima Doacao: 11/10/2022</small></p> <?php } ?>
-  <a href="./NovaDoacao.php" class="btn guardar" style="font-size: 15px;">+Registrar nova doacao</a>
+  <?php if (!empty($doador2)) { ?>
+    <a href="./NovaDoacao.php?id=<?php echo $id ?>" class="btn guardar" style="font-size: 15px;">+Registrar nova doacao</a>
+  <?php } else { ?>
+    <a href="./NovaPreTriagem.php?id=<?php echo $id ?>" class="btn guardar" style="font-size: 15px;">+Registrar dados de Pre-Triagem</a>
+  <?php } ?>
+
+  <?php if (isset($_SESSION['sucesso'])) { ?>
+    <div class="alert alert-success alert-dismissible w-50 mx-auto">
+      <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+      <?php echo $_SESSION['sucesso'];
+      unset($_SESSION['sucesso']); ?>
+    </div>
+    <?php } else {
+    if (isset($_SESSION['erro'])) { ?>
+      <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+        <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+        <?php echo $_SESSION['erro'];
+        unset($_SESSION['erro']) ?>
+      </div>
+  <?php }
+  } ?>
 
   <div class="container d-flex align-items-center mt-5">
     <p class="mx-3 mt-3"><small>Dados Pessoais</small></p>

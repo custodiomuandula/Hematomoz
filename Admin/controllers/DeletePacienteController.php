@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
 
     $paciente = new Paciente();
 
-    if($paciente->delete($_GET['id']) == 0){
+    if($paciente->delete($_GET['id']) == 1){
         $_SESSION['sucesso'] = "Paciente apagado com sucesso";
         header("location: ../views/VerPacientes.php");
     }else{

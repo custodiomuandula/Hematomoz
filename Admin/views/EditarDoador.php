@@ -9,6 +9,7 @@ $dados = $func->selectOne($_GET['id']);
 
 ?>
 
+
 <div class="container otherside">
 
     <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-pen"></i> Editar Doador</h3>

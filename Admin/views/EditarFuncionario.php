@@ -1,16 +1,18 @@
 <?php include_once './head2.php'; ?>
 
-<?php 
+<?php
 include_once '../models/Funcionario.php';
 
 $func = new Funcionario();
 
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $dados = $func->selectOne($_GET['id']);
 }
 
 
 ?>
+
+
 
 <div class="container otherside">
 
@@ -44,8 +46,8 @@ if(isset($_GET['id'])){
                 <div class="container-fluid p-0 d-flex">
                     <select class="form-select w-25 me-2 input1" name="sexo" required>
                         <option>Sexo</option>
-                        <option <?php if($dados->sexo == "M"){?> selected <?php }?> value="M">M</option>
-                        <option <?php if($dados->sexo == "F"){?> selected <?php }?> value="F">F</option>
+                        <option <?php if ($dados->sexo == "M") { ?> selected <?php } ?> value="M">M</option>
+                        <option <?php if ($dados->sexo == "F") { ?> selected <?php } ?> value="F">F</option>
                     </select>
                     <input type="number" class="form-control w-75 input1" name="salario" placeholder="Salario" required value="<?php echo $dados->salario ?>">
 
@@ -55,9 +57,9 @@ if(isset($_GET['id'])){
 
                 <select class="form-select input1" name="perfil" required>
                     <option>Perfil</option>
-                    <option <?php if($dados->perfil == "admin"){?> selected <?php }?> value="admin">Administrador</option>
-                    <option <?php if($dados->perfil == "assistente"){?> selected <?php }?> value="assistente">Assistente</option>
-                    <option <?php if($dados->perfil == "medico"){?> selected <?php }?> value="medico">Medico</option>
+                    <option <?php if ($dados->perfil == "admin") { ?> selected <?php } ?> value="admin">Administrador</option>
+                    <option <?php if ($dados->perfil == "assistente") { ?> selected <?php } ?> value="assistente">Assistente</option>
+                    <option <?php if ($dados->perfil == "medico") { ?> selected <?php } ?> value="medico">Medico</option>
                 </select>
 
                 <div class="container clearfix p-0">

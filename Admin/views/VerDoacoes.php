@@ -1,3 +1,4 @@
+
 <?php include_once './head2.php'; ?>
 
 <?php
@@ -7,30 +8,32 @@ $doacoes = new Doador();
 
 $dados = $doacoes->selecAllDoacoes();
 
-if (isset($_GET['data'])) {
-    $dados2 = $doacoes->selecAllDoacoes2($_GET['data']);
-} else {
-    $dados2 = $doacoes->selecAllDoacoes3();
-}
-
+$dados2 = $doacoes->selecAllDoacoes3();
 ?>
 
 
 <div class="container otherside">
 
     <h3 class="text-center my-4 novofunc" style="font-weight: 700;"><i class="fa-solid fa-user-doctor m"></i> Doacoes</h3>
-
     <?php if (isset($_SESSION['sucesso'])) { ?>
         <div class="alert alert-success alert-dismissible w-50 mx-auto">
             <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
             <?php echo $_SESSION['sucesso'];
-            unset($_SESSION['sucesso']) ?>
+            unset($_SESSION['sucesso']); ?>
         </div>
-    <?php } ?>
+        <?php } else {
+        if (isset($_SESSION['erro'])) { ?>
+            <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+                <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                <?php echo $_SESSION['erro'];
+                unset($_SESSION['erro']) ?>
+            </div>
+    <?php }
+    } ?>
 
     <div class="container clearfix my-3">
         <small style="color: #da4a4a;" class="ms-3 float-start"><?php echo date("d-m-Y") . "(Hoje)" ?></small>
-        <a href="./NovaDoacao.php" class="btn float-end guardar">+Nova Doacao</a>
+
     </div>
 
     <div class="container">
@@ -56,13 +59,13 @@ if (isset($_GET['data'])) {
                         <td><?php echo $conta; ?></td>
                         <td><?php echo $value->nomeD; ?></td>
                         <td><?php echo $value->data_doacao; ?></td>
-                        <td><?php echo $value->local_doacao; ?></td>
+                        <td><?php echo $value->local; ?></td>
                         <td><?php echo $value->quantidade_sangue; ?></td>
                         <td><?php echo $value->estado; ?></td>
                         <td><?php echo $value->nomeM; ?></td>
                         <td>
                             <a href=""><i class="fa-solid fa-circle-info"></i></a>
-
+                            <a href="./EditarDoacao.php?id=<?php echo $value->doacaoId  ?>"><i class="fa-solid fa-pen-to-square">edit</i></a>
                         </td>
 
                     </tr>
@@ -79,14 +82,20 @@ if (isset($_GET['data'])) {
 
     </div>
 
-    <select class="escolha float-start p-2 mt-5 mb-3 ms-3" style="width: 150px; height: auto; font-size: 12px;">
-        <option value="">Todas outras</option>
-        <option value="<?php echo date("Y-m-d", strtotime("last week")) ?>">ultima semana</option>
-        <option value="<?php echo date("Y-m-d", strtotime("last month")) ?>">ultimo mes</option>
+    <div class="container-fluid mt-5 d-flex">
+        <div class="container float-start">
+            <p class=""><small>Pesquise pela data:</small></p>
+            <input type="date" class="escolha p-2" max="<?php echo date('Y-m-d') ?>">
+        </div>
 
-    </select>
+        <div class="container float-end">
+            <p class="ms-5"><small>Pesquise pelo Nome:</small></p>
+            <input type="search" class="escolha p-2 ms-5" placeholder="pesquise aqui...">
+        </div>
 
-    <div class="container">
+    </div>
+
+    <div class="container mt-3">
         <table class="table table-striped">
 
             <thead>
@@ -109,13 +118,13 @@ if (isset($_GET['data'])) {
                         <td><?php echo $conta; ?></td>
                         <td><?php echo $value->nomeD; ?></td>
                         <td><?php echo $value->data_doacao; ?></td>
-                        <td><?php echo $value->local_doacao; ?></td>
+                        <td><?php echo $value->local; ?></td>
                         <td><?php echo $value->quantidade_sangue; ?></td>
                         <td><?php echo $value->estado; ?></td>
                         <td><?php echo $value->nomeM; ?></td>
                         <td>
                             <a href=""><i class="fa-solid fa-circle-info"></i></a>
-
+                            <a href="./EditarDoacao.php?id=<?php echo $value->doacaoId  ?>"><i class="fa-solid fa-pen-to-square">edit</i></a>
                         </td>
 
                     </tr>

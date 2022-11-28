@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2022 at 11:28 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Tempo de geração: 28/11/2022 às 14:29
+-- Versão do servidor: 10.4.25-MariaDB
+-- Versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Hematomoz`
+-- Banco de dados: `Hematomoz`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agendamento`
+-- Estrutura para tabela `agendamento`
 --
 
 CREATE TABLE `agendamento` (
@@ -38,7 +38,7 @@ CREATE TABLE `agendamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conteudo_requisicao`
+-- Estrutura para tabela `conteudo_requisicao`
 --
 
 CREATE TABLE `conteudo_requisicao` (
@@ -49,7 +49,7 @@ CREATE TABLE `conteudo_requisicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `conteudo_requisicao`
+-- Despejando dados para a tabela `conteudo_requisicao`
 --
 
 INSERT INTO `conteudo_requisicao` (`id`, `tipo_sanguineo`, `quantidade`, `id_requisicao`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `conteudo_requisicao` (`id`, `tipo_sanguineo`, `quantidade`, `id_req
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doacao`
+-- Estrutura para tabela `doacao`
 --
 
 CREATE TABLE `doacao` (
@@ -72,10 +72,17 @@ CREATE TABLE `doacao` (
   `id_medico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Despejando dados para a tabela `doacao`
+--
+
+INSERT INTO `doacao` (`id`, `data_doacao`, `local`, `quantidade_sangue`, `estado`, `id_doador`, `id_medico`) VALUES
+(1, '2022-11-27', 'Hospital Central de Maputo', 2, 'Testado e Rejeitado', 1, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `doador`
+-- Estrutura para tabela `doador`
 --
 
 CREATE TABLE `doador` (
@@ -95,18 +102,17 @@ CREATE TABLE `doador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `doador`
+-- Despejando dados para a tabela `doador`
 --
 
 INSERT INTO `doador` (`id`, `nome`, `tipo_documento`, `nr_documento`, `data_nascimento`, `sexo`, `pais_nascimento`, `endereco`, `tel1`, `tel2`, `email`, `tipo_sanguineo`, `id_assistente`) VALUES
-(1, 'Carlos Acacio', 'B.I', '12345', '2022-11-01', 'M', 'Mocambique', 'Maputo, Matola', '23456789', '345678', 'cc@gmail.com', 'A-', 1),
-(2, 'Jonas Pena', 'Cedula', '1234560', '2022-11-25', 'M', 'Portugal', 'Alto Mae', '8567482716', '123456', 'jp@gmail.com', NULL, 1),
-(3, 'Carlos Acacio', 'Cedula', '12345', '2022-11-01', 'M', 'Mocambique', 'Maputo, Matola', '23456789', '345678', 'cc@gmail.com', NULL, 1);
+(1, 'Maria Acacio', 'B.I', '12345', '2022-11-01', 'M', 'Mocambique', 'Maputo, Matola', '23456789', '345678', 'cc@gmail.com', 'A-', 1),
+(2, 'Jonas Pena', 'Cedula', '1234560', '2022-11-25', 'M', 'Portugal', 'Alto Mae', '8567482716', '123456', 'jp@gmail.com', NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `exame_sangue`
+-- Estrutura para tabela `exame_sangue`
 --
 
 CREATE TABLE `exame_sangue` (
@@ -123,7 +129,7 @@ CREATE TABLE `exame_sangue` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funcionario`
+-- Estrutura para tabela `funcionario`
 --
 
 CREATE TABLE `funcionario` (
@@ -143,24 +149,23 @@ CREATE TABLE `funcionario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `funcionario`
+-- Despejando dados para a tabela `funcionario`
 --
 
 INSERT INTO `funcionario` (`id`, `nome`, `nr_bi`, `nacionalidade`, `email`, `endereco`, `tel1`, `tel2`, `data_nascimento`, `sexo`, `anos_experiencia`, `salario`, `data_registro`) VALUES
 (1, 'Elton Bata', '123456789M', 'Mocambicano', 'elton@gmail.com', 'Maputo, Matola, Intaka', '849030182', '879030182', '2012-12-14', 'M', 2, 50000, '2022-11-24'),
-(2, 'Joana Campos', '123456789N', 'Mocambicana', '1@gmail.com', 'Bairro Alto Mae', '8390172927', '', '2022-11-10', 'M', 1, 10000, '2022-11-24'),
 (3, 'Joana Campos', '123456789N', 'Mocambicana', '1@gmail.com', 'Bairro Alto Mae', '8390172927', '', '2022-11-10', 'M', 1, 10000, '2022-11-24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paciente`
+-- Estrutura para tabela `paciente`
 --
 
 CREATE TABLE `paciente` (
   `id` int(11) NOT NULL,
   `nome` varchar(512) NOT NULL,
-  `tipo_documeto` varchar(100) DEFAULT NULL,
+  `tipo_documento` varchar(100) DEFAULT NULL,
   `nr_documento` varchar(100) NOT NULL,
   `data_nascimento` date NOT NULL,
   `sexo` char(1) NOT NULL,
@@ -169,14 +174,21 @@ CREATE TABLE `paciente` (
   `tel1` varchar(20) NOT NULL,
   `tel2` varchar(20) DEFAULT NULL,
   `email` varchar(512) DEFAULT NULL,
-  `tipo_sanguineo` char(5) NOT NULL,
+  `tipo_sanguineo` char(5) DEFAULT NULL,
   `id_assistente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `paciente`
+--
+
+INSERT INTO `paciente` (`id`, `nome`, `tipo_documento`, `nr_documento`, `data_nascimento`, `sexo`, `pais_nascimento`, `endereco`, `tel1`, `tel2`, `email`, `tipo_sanguineo`, `id_assistente`) VALUES
+(2, 'Amelia Lichucha', 'Tipo de documento', '1234567', '2014-02-26', 'F', 'Portugal', 'Av. Karl Max, Predio 05', '8567482716', '123456', 'ml@gmail.com', NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perfil`
+-- Estrutura para tabela `perfil`
 --
 
 CREATE TABLE `perfil` (
@@ -189,17 +201,17 @@ CREATE TABLE `perfil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `perfil`
+-- Despejando dados para a tabela `perfil`
 --
 
 INSERT INTO `perfil` (`id_perfil`, `username`, `password`, `perfil`, `id_func`, `id_doador`) VALUES
-(1, 'Elton Bata', '$2y$10$nuLh7OGeSiRX/wDmVfUc1.wWeZQnqjavGSaTqb7rxtR/C3Wxbprsm', 'admin', 1, NULL),
-(2, 'Joana Campos', '$2y$10$GbVZE/2X4.A05ADpnW/J0OuLBv.04h5x1An./Aki.20dFK0HGilUq', 'assistente', 3, NULL);
+(1, 'Elton Bata', '$2y$10$kvwwBXm85JDC35pzs2jeeOWEg2cgP2//ZtQOtROyK757BQY0QSMaO', 'admin', 1, NULL),
+(2, 'Joana Campos', '$2y$10$4xiH0VAgLWfR7MVNZNZrz.s1NL2ZGjXMg5fpVBIZXlt0fI2iAH3oW', 'assistente', 3, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pre_triagem`
+-- Estrutura para tabela `pre_triagem`
 --
 
 CREATE TABLE `pre_triagem` (
@@ -207,20 +219,28 @@ CREATE TABLE `pre_triagem` (
   `anemico` varchar(20) NOT NULL,
   `consumo_alcool` varchar(20) NOT NULL,
   `exercicios_fisicos` varchar(20) NOT NULL,
-  `pressao_arterial` int(20) NOT NULL,
-  `temperatura` int(11) NOT NULL,
-  `peso` float NOT NULL,
-  `altura` float NOT NULL,
+  `pressao_arterial` varchar(10) NOT NULL,
+  `temperatura` varchar(11) NOT NULL,
+  `peso` varchar(10) NOT NULL,
+  `altura` varchar(10) NOT NULL,
   `historico_doencas` text NOT NULL,
-  `estado_saude` varchar(50) NOT NULL,
+  `estado_saude` varchar(50) DEFAULT NULL,
   `habitos_alimentares` text NOT NULL,
   `id_doador` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Despejando dados para a tabela `pre_triagem`
+--
+
+INSERT INTO `pre_triagem` (`id`, `anemico`, `consumo_alcool`, `exercicios_fisicos`, `pressao_arterial`, `temperatura`, `peso`, `altura`, `historico_doencas`, `estado_saude`, `habitos_alimentares`, `id_doador`) VALUES
+(1, 'nao', 'nao', 'frequentemente', '1', '30', '50', '1.82', 'denge', 'saudavel', 'consumo excessivo de gorduras,\nconsome 2l de agua por dia', 1),
+(3, 'Nao', 'Nao', 'As Vezes', '14/5', '30', '50', '1,68', 'Nenhum', NULL, 'Consome muita gordura', 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `requisicao`
+-- Estrutura para tabela `requisicao`
 --
 
 CREATE TABLE `requisicao` (
@@ -233,16 +253,16 @@ CREATE TABLE `requisicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `requisicao`
+-- Despejando dados para a tabela `requisicao`
 --
 
 INSERT INTO `requisicao` (`id`, `data_requisicao`, `data_entrega`, `estado`, `id_admin`, `id_requisitante`) VALUES
-(1, '2022-11-07', '2022-11-24', 'pendente', 1, 1);
+(1, '2022-11-26', '2022-11-29', 'pendente', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `requisitante`
+-- Estrutura para tabela `requisitante`
 --
 
 CREATE TABLE `requisitante` (
@@ -255,7 +275,7 @@ CREATE TABLE `requisitante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `requisitante`
+-- Despejando dados para a tabela `requisitante`
 --
 
 INSERT INTO `requisitante` (`id`, `nome_instituicao`, `endereco`, `email`, `tel1`, `tel2`) VALUES
@@ -264,7 +284,7 @@ INSERT INTO `requisitante` (`id`, `nome_instituicao`, `endereco`, `email`, `tel1
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transfusao`
+-- Estrutura para tabela `transfusao`
 --
 
 CREATE TABLE `transfusao` (
@@ -277,25 +297,25 @@ CREATE TABLE `transfusao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `agendamento`
+-- Índices de tabela `agendamento`
 --
 ALTER TABLE `agendamento`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_doador` (`id_doador`);
 
 --
--- Indexes for table `conteudo_requisicao`
+-- Índices de tabela `conteudo_requisicao`
 --
 ALTER TABLE `conteudo_requisicao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_requisicao` (`id_requisicao`);
 
 --
--- Indexes for table `doacao`
+-- Índices de tabela `doacao`
 --
 ALTER TABLE `doacao`
   ADD PRIMARY KEY (`id`),
@@ -303,34 +323,34 @@ ALTER TABLE `doacao`
   ADD KEY `id_medico` (`id_medico`);
 
 --
--- Indexes for table `doador`
+-- Índices de tabela `doador`
 --
 ALTER TABLE `doador`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_assistente` (`id_assistente`);
 
 --
--- Indexes for table `exame_sangue`
+-- Índices de tabela `exame_sangue`
 --
 ALTER TABLE `exame_sangue`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_doacao` (`id_doacao`);
 
 --
--- Indexes for table `funcionario`
+-- Índices de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `paciente`
+-- Índices de tabela `paciente`
 --
 ALTER TABLE `paciente`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_assistente` (`id_assistente`);
 
 --
--- Indexes for table `perfil`
+-- Índices de tabela `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id_perfil`),
@@ -338,14 +358,14 @@ ALTER TABLE `perfil`
   ADD KEY `id_cliente` (`id_doador`);
 
 --
--- Indexes for table `pre_triagem`
+-- Índices de tabela `pre_triagem`
 --
 ALTER TABLE `pre_triagem`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_doador` (`id_doador`);
 
 --
--- Indexes for table `requisicao`
+-- Índices de tabela `requisicao`
 --
 ALTER TABLE `requisicao`
   ADD PRIMARY KEY (`id`),
@@ -353,13 +373,13 @@ ALTER TABLE `requisicao`
   ADD KEY `id_requisitante` (`id_requisitante`);
 
 --
--- Indexes for table `requisitante`
+-- Índices de tabela `requisitante`
 --
 ALTER TABLE `requisitante`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `transfusao`
+-- Índices de tabela `transfusao`
 --
 ALTER TABLE `transfusao`
   ADD PRIMARY KEY (`id`),
@@ -367,144 +387,144 @@ ALTER TABLE `transfusao`
   ADD KEY `id_paciente` (`id_paciente`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `agendamento`
+-- AUTO_INCREMENT de tabela `agendamento`
 --
 ALTER TABLE `agendamento`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `conteudo_requisicao`
+-- AUTO_INCREMENT de tabela `conteudo_requisicao`
 --
 ALTER TABLE `conteudo_requisicao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `doacao`
+-- AUTO_INCREMENT de tabela `doacao`
 --
 ALTER TABLE `doacao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `doador`
+-- AUTO_INCREMENT de tabela `doador`
 --
 ALTER TABLE `doador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `exame_sangue`
+-- AUTO_INCREMENT de tabela `exame_sangue`
 --
 ALTER TABLE `exame_sangue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `funcionario`
+-- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `paciente`
+-- AUTO_INCREMENT de tabela `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `perfil`
+-- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
   MODIFY `id_perfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pre_triagem`
+-- AUTO_INCREMENT de tabela `pre_triagem`
 --
 ALTER TABLE `pre_triagem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `requisicao`
+-- AUTO_INCREMENT de tabela `requisicao`
 --
 ALTER TABLE `requisicao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `requisitante`
+-- AUTO_INCREMENT de tabela `requisitante`
 --
 ALTER TABLE `requisitante`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `transfusao`
+-- AUTO_INCREMENT de tabela `transfusao`
 --
 ALTER TABLE `transfusao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restrições para tabelas despejadas
 --
 
 --
--- Constraints for table `agendamento`
+-- Restrições para tabelas `agendamento`
 --
 ALTER TABLE `agendamento`
   ADD CONSTRAINT `agendamento_ibfk_1` FOREIGN KEY (`id_doador`) REFERENCES `doador` (`id`);
 
 --
--- Constraints for table `conteudo_requisicao`
+-- Restrições para tabelas `conteudo_requisicao`
 --
 ALTER TABLE `conteudo_requisicao`
   ADD CONSTRAINT `conteudo_requisicao_ibfk_1` FOREIGN KEY (`id_requisicao`) REFERENCES `requisicao` (`id`);
 
 --
--- Constraints for table `doacao`
+-- Restrições para tabelas `doacao`
 --
 ALTER TABLE `doacao`
   ADD CONSTRAINT `doacao_ibfk_1` FOREIGN KEY (`id_doador`) REFERENCES `doador` (`id`),
   ADD CONSTRAINT `doacao_ibfk_2` FOREIGN KEY (`id_medico`) REFERENCES `funcionario` (`id`);
 
 --
--- Constraints for table `doador`
+-- Restrições para tabelas `doador`
 --
 ALTER TABLE `doador`
   ADD CONSTRAINT `doador_ibfk_1` FOREIGN KEY (`id_assistente`) REFERENCES `funcionario` (`id`);
 
 --
--- Constraints for table `exame_sangue`
+-- Restrições para tabelas `exame_sangue`
 --
 ALTER TABLE `exame_sangue`
   ADD CONSTRAINT `exame_sangue_ibfk_1` FOREIGN KEY (`id_doacao`) REFERENCES `doacao` (`id`);
 
 --
--- Constraints for table `paciente`
+-- Restrições para tabelas `paciente`
 --
 ALTER TABLE `paciente`
   ADD CONSTRAINT `paciente_ibfk_1` FOREIGN KEY (`id_assistente`) REFERENCES `funcionario` (`id`);
 
 --
--- Constraints for table `perfil`
+-- Restrições para tabelas `perfil`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`id_func`) REFERENCES `funcionario` (`id`),
   ADD CONSTRAINT `perfil_ibfk_2` FOREIGN KEY (`id_doador`) REFERENCES `doador` (`id`);
 
 --
--- Constraints for table `pre_triagem`
+-- Restrições para tabelas `pre_triagem`
 --
 ALTER TABLE `pre_triagem`
   ADD CONSTRAINT `pre_triagem_ibfk_1` FOREIGN KEY (`id_doador`) REFERENCES `doador` (`id`);
 
 --
--- Constraints for table `requisicao`
+-- Restrições para tabelas `requisicao`
 --
 ALTER TABLE `requisicao`
   ADD CONSTRAINT `requisicao_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `funcionario` (`id`),
   ADD CONSTRAINT `requisicao_ibfk_2` FOREIGN KEY (`id_requisitante`) REFERENCES `requisitante` (`id`);
 
 --
--- Constraints for table `transfusao`
+-- Restrições para tabelas `transfusao`
 --
 ALTER TABLE `transfusao`
   ADD CONSTRAINT `transfusao_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `funcionario` (`id`),

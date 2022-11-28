@@ -1,3 +1,4 @@
+
 <?php include_once './head2.php'; ?>
 
 <?php
@@ -17,9 +18,17 @@ $dados = $func->selecAll();
         <div class="alert alert-success alert-dismissible w-50 mx-auto">
             <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
             <?php echo $_SESSION['sucesso'];
-            unset($_SESSION['sucesso']) ?>
+            unset($_SESSION['sucesso']); ?>
         </div>
-    <?php } ?>
+        <?php } else {
+        if (isset($_SESSION['erro'])) { ?>
+            <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+                <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                <?php echo $_SESSION['erro'];
+                unset($_SESSION['erro']) ?>
+            </div>
+    <?php }
+    } ?>
 
     <div class="container clearfix mb-4">
         <select class="escolha float-start p-2">
