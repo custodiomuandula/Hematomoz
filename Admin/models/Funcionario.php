@@ -64,4 +64,24 @@ class Funcionario
 
         return $this->conta;
     }
+
+    public function selectByName($nome)
+    {
+        $this->sql = $this->conexao->query("SELECT * FROM funcionario WHERE nome like '%$nome%'");
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
+
+    public function selectByPerfil($nome)
+    {
+        if ($nome != "") {
+            $this->sql = $this->conexao->query("SELECT * FROM funcionario JOIN perfil WHERE perfil like '$nome' AND funcionario.id=id_func");
+        } else {
+            $this->sql = $this->conexao->query("SELECT * FROM funcionario JOIN perfil WHERE funcionario.id=id_func");
+        }
+        $this->sql->execute();
+        $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
+        return $this->dados;
+    }
 }

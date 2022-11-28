@@ -1,4 +1,3 @@
-
 <?php include_once './head2.php'; ?>
 
 <?php
@@ -31,14 +30,15 @@ $dados = $func->selecAll();
     } ?>
 
     <div class="container clearfix mb-4">
-        <select class="escolha float-start p-2">
+        <select class="escolha float-start p-2" onchange="pesquisa2(this.value)">
+            <option value="">Todos</option>
             <option value="admin">Administradores</option>
             <option value="assistente">Assitentes</option>
             <option value="medico">Medicos</option>
         </select>
 
 
-        <input type="search" class="form-control escolha float-end" placeholder="pesquise aqui...">
+        <input type="search" id="pesquisa" onkeyup="pesquisa(this.value)" class="form-control escolha float-end" placeholder="pesquise aqui...">
 
     </div>
 
@@ -56,7 +56,7 @@ $dados = $func->selecAll();
                 <th>Email</th>
             </thead>
 
-            <tbody>
+            <tbody id="body">
 
                 <?php $conta = 1;
                 foreach ($dados as $key => $value) { ?>
@@ -109,3 +109,25 @@ $dados = $func->selecAll();
 </div>
 
 </div>
+
+<script>
+    function pesquisa(str) {
+
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+            document.getElementById("body").innerHTML = this.responseText;
+        }
+        xmlhttp.open("GET", "../controllers/SearchFuncionarioController.php?nome=" + str + "&perfil=doador");
+        xmlhttp.send();
+    }
+
+    function pesquisa2(str) {
+
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+            document.getElementById("body").innerHTML = this.responseText;
+        }
+        xmlhttp.open("GET", "../controllers/SearchFuncionarioController.php?perfil=" + str );
+        xmlhttp.send();
+    }
+</script>

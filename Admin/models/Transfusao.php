@@ -17,21 +17,12 @@ class Transfusao
         return $this->conexao;
     }
 
-    public function selecAll()
+    public function selectAll()
     {
-        $this->sql = $this->conexao->query("SELECT nome_instituicao, requisicao.id AS reqid, data_entrega,data_requisicao, estado FROM requisicao JOIN requisitante WHERE requisitante.id = id_requisitante");
+        $this->data = date("Y-m-d");
+        $this->sql = $this->conexao->query(" SELECT funcionario.nome AS funcNome, paciente.nome AS pacNome, data_transfusao,local,estado FROM `transfusao`JOIN paciente ON transfusao.id_paciente=paciente.id JOIN funcionario on transfusao.id_medico=funcionario.id");
         $this->sql->execute();
         $this->dados = $this->sql->fetchAll(PDO::FETCH_OBJ);
         return $this->dados;
-    }
-
-
-    public function count()
-    {
-        $this->data = date("Y-m-d");
-        $this->sql = $this->conexao->query("SELECT * FROM transfusao WHERE data_transfusao='$this->data'");
-        $this->sql->execute();
-        $this->conta = $this->sql->rowCount();
-        return $this->conta;
     }
 }
