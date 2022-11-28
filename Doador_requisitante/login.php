@@ -1,4 +1,6 @@
-<?php include '../Doador_requisitante/views/head.php' ?>
+<?php include '../Doador_requisitante/views/head.php' ;
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +11,8 @@
     <link rel="stylesheet" href="../Admin/assets/css/bootstrap.min.css">
     <script src="../Admin/assets/js/jquery.js"></script>
     <script src="../Admin/assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../Admin/assets/css/head.css">
+    <link rel="stylesheet" href="../Admin/assets/css/Home.css">
     <link rel="stylesheet" href="../Admin/assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -17,12 +21,27 @@
 
 <body>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; margin-top:-25px">
 
         <div class="container principal ">
             <div class="container d-flex justify-content-center">
                 <img src="../Admin/assets/fotos/Imagem.png" class="imagem">
             </div>
+            <?php if (isset($_SESSION['sucesso'])) { ?>
+                <div class="alert alert-success alert-dismissible w-50 mx-auto">
+                    <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                    <?php echo $_SESSION['sucesso'];
+                    unset($_SESSION['sucesso']); ?>
+                </div>
+                <?php } else {
+                if (isset($_SESSION['erro'])) { ?>
+                    <div class="alert alert-danger alert-dismissible w-50 mx-auto">
+                        <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+                        <?php echo $_SESSION['erro'];
+                        unset($_SESSION['erro']) ?>
+                    </div>
+            <?php }
+            } ?>
 
             <div class="container w-75 text-center">
                 <p class="mensagem ">Banco de Sangue empregado no salvamento de vidas

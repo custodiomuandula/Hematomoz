@@ -20,6 +20,13 @@
                 </div>
                
                 <input type="email" class="form-control input1" name="email" placeholder="Email" >
+                <div class="container clearfix mb-4 mt-3">
+        <select class="form-select w-75 me-2 input1">
+            <option value="admin">Selecione o dia que quer fazer a Doacao</option>
+            <option value="assistente"></option>
+            <option value="medico"></option>
+        </select>
+        </div>
             </div>
 
             <div class="container">
@@ -31,7 +38,15 @@
                     </select>
                   
                 </div>
-                <input type="text" class="form-control input1" name="nr_bi" placeholder="Numero de B.I" required>
+                <select class="form-select me-2 input1" name="tipo_documento" required>
+                    <option>Tipo de documento</option>
+                    <option value="M">B.I</option>
+                    <option value="F">Cedula</option>
+                    <option value="F">Cartao de Eleitor</option>
+                    <option value="F">NUIT</option>
+                </select>
+                <input type="text" class="form-control input1" name="nr_documento" placeholder="Numero de Documento" required>
+    
                 <div class="container-fluid d-flex p-0 mt-2  text-center">
                     <label for="">Consome Alcool ?</label>
                     <label for="" class="ms-4">sim</label> <input type="radio" class="me-2 ms-2 " name="alc" >
@@ -48,8 +63,8 @@
                      <label for="">Não</label> <input type="radio" class="ms-2 " name="k" >
                 </div>
                 
-                <textarea class="form-control input1" placeholder="Endereco" name="endereco" style="height: 150px;"></textarea>
-            
+             
+                <input type="text" class="form-control input1" name="nr_documento" placeholder="Morada" required>
 
                 <div class="container clearfix p-0">
                     <button type="submit" class="btn guardar mt-4 float-end"><i class="fa-solid fa-floppy-disk"></i>Agendar</button>
